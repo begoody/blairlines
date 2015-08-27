@@ -18,7 +18,10 @@ module.exports = {
   	events: {
   		collection: 'event',
   		via: 'pilots'
-  	}
+  	},
+    user: {
+      model: 'user'
+    }
   }
 };
 

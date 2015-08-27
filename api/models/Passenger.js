@@ -22,7 +22,10 @@ module.exports = {
   	feedbacks:{
   		collection: 'feedback',
   		via: 'passengers'
-  	}
+  	},
+    user: {
+      model: 'user'
+    }
   }
   
 };
