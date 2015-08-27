@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Blairlines signUp page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<!--SCRIPTS-->
+		<script src="/js/dependencies/sails.io.js"></script>
+		<script src="/js/vendor/jquery-1.11.3.min.js"></script>
+		<script src="/js/public/CompareToDirective.js"></script>
+		<script src="/js/vendor/bootstrap.min.js"></script>
+		<script src="/js/vendor/ejs_production.js"></script>
+		<!--SCRIPTS END-->
+		<!--STYLES-->
+		<link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.css">
+		<link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
+		<link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="/styles/importer.css">
+		<!--STYLES END-->
+		<script>
+
+		var data = {};
+
+		$(document).ready(function(){
+
+			var html = new EJS({url: "templates/tempfolder/temp.ejs"}).render(data);
+		
+			$(".container").html(html);
+
+		});
+
+		</script>
+	</head>
+	<body>
+		<h1>Just a header</h1>
+		<div class="container"></div>
+	</body>
+</html>
