@@ -34,7 +34,15 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  'GET /default': { view: 'default'},
+  /*,
+
+  '/user/new/' : {
+
+    controller: 'userController',
+    action: 'new'
+  }*/
 
   /***************************************************************************
   *                                                                          *
