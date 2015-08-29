@@ -36,6 +36,7 @@ module.exports.routes = {
     view: 'homepage'
   },
   'GET /default': { view: 'default'},
+  'GET /signup': { view: 'signup' },
   /*,
 
   '/user/new/' : {

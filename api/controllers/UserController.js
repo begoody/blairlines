@@ -18,7 +18,7 @@ module.exports = {
 		User.create(req.params.all(),function userCreated(err,user){  
 
 			if(err){ 
-			console.log(err);
+			res.json(err);
 				
 				
 
