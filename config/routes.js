@@ -33,7 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'layout'
   },
   'GET /default': { view: 'default'},
   'GET /signup': { view: 'signup' },
