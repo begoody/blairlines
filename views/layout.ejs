@@ -57,13 +57,79 @@
 
     <!-- Header -->
     <header id="top" class="header">
-        <div class="text-vertical-center">
+        <div class="text-vertical-center" >
             <h1>BlairLines</h1>
             <h3>Fly with your Family &amp; Friends</h3>
             <br>
-            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+            <a href="#" class="btn btn-dark btn-lg get-started">Get started</a>
+
+            <div class="header-forms container" style="text-align: left;">
+            <div class="container sign-up" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Signup form</h2>
+
+                </div>
+            
+                <form action="/user/create" class="signup-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1"  name="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password"/>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios1" value="1" checked>
+                        Passenger
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios2" value="2" checked>
+                        Pilot
+                      </label>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+            <div class="container profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Fill your profile</h2>
+                </div>
+            
+                <form action="" class="profile-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAge">Age</label>
+                        <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
         </div>
+
+        </div>
+
+
+        
     </header>
+
+
 
     <!-- About -->
     <section id="about" class="about">
@@ -258,6 +324,7 @@
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/vendor/jquery-1.11.3.min.js"></script>
     <script src="/js/public/CompareToDirective.js"></script>
+    <script src="/js/public/user.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
     <script src="/js/vendor/bootstrap.min.js"></script>
     <script src="/js/vendor/ejs_production.js"></script>
@@ -303,6 +370,7 @@
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/vendor/jquery-1.11.3.min.js"></script>
     <script src="/js/public/CompareToDirective.js"></script>
+    <script src="/js/public/user.js"></script>
     <script src="/js/vendor/bootstrap.min.js"></script>
     <script src="/js/vendor/ejs_production.js"></script>
     <!--SCRIPTS END-->
