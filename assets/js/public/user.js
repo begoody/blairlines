@@ -1,5 +1,12 @@
 $(document).ready(function(){
 	
+	$(".get-started").on("click",function(){
+
+		$(".sign-up").show();
+		$(this).hide();
+
+	});
+
 	$(".signup-form").submit(function(){
 
 		var formData = $(this).serializeArray();
@@ -46,7 +53,8 @@ $(document).ready(function(){
 
 				} else{
 					console.log(data)
-					$(self).html("<h1>Registration completed, fill your profile</h1>");
+					$(".sign-up").hide();
+					$(".profile").show();
 				}
 
 			}
