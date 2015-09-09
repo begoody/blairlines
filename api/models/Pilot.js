@@ -14,7 +14,7 @@ module.exports = {
     },
     age: 'integer',
     phone: {
-      type: 'phone',
+      type: 'string',
       required: true,
     },
   	raiting: 'float',

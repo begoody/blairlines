@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
   	date : 'date',
-  	time : 'time',
+  	time : 'string',
   	description: 'string',
   	status: 'integer',
   	eventType: 'integer',//need to extend
