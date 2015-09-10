@@ -11,6 +11,7 @@ module.exports = {
 		
 		var params = req.params.all();
 		params.pilots = req.session.PilotId;
+		if(req.session.ClubId){ params.club = req.session.ClubId; }
 		//console.log(params);
 		delete(params.id);
 		

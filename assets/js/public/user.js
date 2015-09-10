@@ -1,8 +1,10 @@
 function userLogin(data){
 
 	if(data.user.userType==2){ $(".create-event").show(); }
+	if(data.user.userType==3){ $(".create-event").show();  }
 
-	$(".login-form, .user-indicator, .get-started").toggle();
+	$(".login-form, .get-started, .pilot-profile, .passenger-profile, .sign-up").hide();
+	$(".user-indicator").show();
 	$(".username").text(data.name);
 }
 
@@ -72,6 +74,7 @@ $(document).ready(function(){
 				} else{
 					console.log(data)
 					$(".sign-up").hide();
+					if(data.userType=="3"){ $(".club-profile").show(); }
 					if(data.userType=="2"){ $(".pilot-profile").show(); }
 					if(data.userType=="1"){ $(".passenger-profile").show(); }
 					
@@ -142,6 +145,8 @@ $(document).ready(function(){
 
 		});
 	});
+	
+	
 
 	$(".login-form").submit(function(e){
 			e.preventDefault();

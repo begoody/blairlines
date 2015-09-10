@@ -53,6 +53,7 @@ module.exports = {
 						if(passenger){
 							passenger.user = user;
 							req.session.UserName = passenger.name;
+							req.session.UserType = user.userType;
 							res.json(passenger);
 						}else { res.json(err); }	
 						
@@ -64,8 +65,23 @@ module.exports = {
 						if(pilot){ 
 							pilot.user = user;
 							req.session.UserName = pilot.name;
+							req.session.UserType = user.userType;
 							req.session.PilotId = pilot.id;
 							res.json(pilot); 
+						}else { res.json(err); }	
+						
+					});
+				}
+
+				if(user.userType=="3"){					
+					Club.findOne({ user: user.id }).exec(function findClub(err,club){
+						//console.log(club);
+						if(club){ 
+							club.user = user;
+							req.session.UserName = club.name;
+							req.session.UserType = user.userType;
+							req.session.ClubId = club.id;
+							res.json(club); 
 						}else { res.json(err); }	
 						
 					});

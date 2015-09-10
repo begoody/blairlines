@@ -1,16 +1,6 @@
-$(document).ready(function(){ console.log('asdasd');
-	$('#inputDate').datepicker({ dateFormat: "yy-mm-dd" });
-	
-	$(".create-event").on("click",function(){
-		console.log("sdf");
-		$(this).hide();
-
-		$(".event-block").show();
-		
-	});
-
+function makeClubsList(){
 	$.ajax({
-		url: "club",
+		url: "club/getclubs",
 		method: "GET",
 		dataType: "JSON",
 		success: function(data){
@@ -20,6 +10,20 @@ $(document).ready(function(){ console.log('asdasd');
 				$(".form-control[name=club]").html(club_option_html);
 			}
 		}
+	});
+}
+
+$(document).ready(function(){ console.log('asdasd');
+	$('#inputDate').datepicker({ dateFormat: "yy-mm-dd" });
+	
+	$(".create-event").on("click",function(){
+		console.log("sdf");
+		$(this).hide();
+
+		$(".event-block").show();
+
+		makeClubsList();
+		
 	});
 	
 	$(".create-event-form").submit(function(e){
