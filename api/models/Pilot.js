@@ -8,7 +8,15 @@
 module.exports = {
 
   attributes: {
-  	name: 'string',
+  	name: {
+      type: 'string',
+      required: true
+    },
+    age: 'integer',
+    phone: {
+      type: 'string',
+      required: true,
+    },
   	raiting: 'float',
   	status: 'integer',
   	clubs:{

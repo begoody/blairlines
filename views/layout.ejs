@@ -9,7 +9,7 @@
     <meta name="Social platform for pilots and passengers" content="">
     <meta name="DarkSociety" content="">
 
-    <title>BlairLines - DarkSociety</title>
+    <title>_BlairLines - DarkSociety</title>
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/blairlines.css">
@@ -22,15 +22,49 @@
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/jquery-ui.min.css">
     <!--STYLES END-->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="/js/public/CompareToDirective.js"></script>
+    <script src="/js/public/event.js"></script>
+    <script src="/js/public/user.js"></script>
+    <script src="/js/vendor/bootstrap.js"></script>
+    <script src="/js/vendor/bootstrap.min.js"></script>
+    <script src="/js/vendor/ejs_production.js"></script>
+    <script src="/js/vendor/jquery-ui.min.js"></script>
+    <!--SCRIPTS END-->
 
 </head>
 
 <body>
 
+        <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          <form action="/user/login" class="navbar-form navbar-right login-form">
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="email"  name="email"/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="password" name="password"/>
+            </div>
+            <button type="submit" class="btn btn-default">Login</button>
+          </form>
+          <div class="container user-indicator" style="text-align: right; display: none;">
+            <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 20px;"></span><span class="username" style="margin-left: 10px; margin-right: 10px;"></span><a href="#" class="exit">Exit</a>&rarr;
+          </div>
+        </div>
+
     <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="top: 53px;"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-minus-circle fa-2x"></i></a>
@@ -56,14 +90,182 @@
     </nav>
 
     <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
+    <header id="top" class="header" style="padding-top: 85px;">
+        <div class="text-vertical-center" >
             <h1>BlairLines</h1>
             <h3>Fly with your Family &amp; Friends</h3>
             <br>
-            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+            <a href="#" class="btn btn-dark btn-lg get-started">Get started</a>
+            <a href="#" class="btn btn-dark btn-lg create-event" style="display: none;">Create event</a>
+
+            <div class="header-forms container" style="text-align: left;">
+            <div class="container sign-up" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Signup form</h2>
+
+                </div>
+            
+                <form action="/user/create" class="signup-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1"  name="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password"/>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios1" value="1" checked>
+                        Passenger
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios2" value="2" >
+                        Pilot
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios3" value="3" >
+                        Club
+                      </label>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+            <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Fill your club's profile</h2>
+                </div>
+            
+                <form action="/club/create" class="profile-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContactPerson">Contact person</label>
+                        <input type="text" class="form-control" id="inputContactPerson" name="contactPerson" />
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLocation">Location</label>
+                        <input type="text" class="form-control" id="inputLocation" name="location"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputWorkingHours">Working hours</label>
+                        <input type="text" class="form-control" id="inputWorkingHours" name="workingHours"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Description</label>
+                        <textarea class="form-control" id="inputDescription" name="description"></textarea>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+            <div class="container pilot-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Fill your pilot's profile</h2>
+                </div>
+            
+                <form action="/pilot/create" class="profile-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAge">Age</label>
+                        <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+            <div class="container passenger-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Fill your profile</h2>
+                </div>
+            
+                <form action="/passenger/create" class="profile-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAge">Age</label>
+                        <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+            <div class="container event-block" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+                
+                    <h2 style="text-align: center;">Create new event</h2>
+                
+                <form action="/event/create" class="create-event-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="inputDate">Date</label>
+                        <input type="text" class="form-control" id="inputDate" name="date" style="width: 150px;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTime">Time</label>
+                        <input type="text" class="form-control" id="inputTime" name="time"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescr">Event Description</label>
+                        <textarea class="form-control" id="inputDescr" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="eventType">
+                          <option value="1">Promo event</option>
+                          <option value="2">Intro-flight</option>
+                          <option value="3">Scenic flight</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="club">
+                          <!-- Ajax request here -->
+                        </select>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+
         </div>
+
+        </div>
+
+
+        
     </header>
+
+
 
     <!-- About -->
     <section id="about" class="about">
@@ -253,16 +455,6 @@
             </div>
         </div>
     </footer>
-    
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/vendor/jquery-1.11.3.min.js"></script>
-    <script src="/js/public/CompareToDirective.js"></script>
-    <script src="/js/vendor/bootstrap.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
-    <script src="/js/vendor/ejs_production.js"></script>
-    <script src="/js/vendor/jquery.js"></script>
-    <!--SCRIPTS END-->
 
     <script>
     // Closes the sidebar menu
@@ -296,16 +488,4 @@
     </script>
 
 </body>
-
-<<<<<<< HEAD
-=======
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/vendor/jquery-1.11.3.min.js"></script>
-    <script src="/js/public/CompareToDirective.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
-    <script src="/js/vendor/ejs_production.js"></script>
-    <!--SCRIPTS END-->
-  </body>
->>>>>>> 5dd9b2d6dd323cb39c670c1a0367e32f4b737262
 </html>
