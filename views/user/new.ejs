@@ -1,0 +1,15 @@
+<form action="/user/create" method="POST" class="form-signin" >
+	<h2 class="form-signin-heading">Create a account</h2>
+	<div class="control-group">
+		<input type="text" class="form-control" placeholder="email" name="email" />
+	</div>
+	<div class="control-group">
+		<input type="password" class="form-control" placeholder="password" name="encryptedPassword" />
+	</div>
+	<div class="control-group">
+		<input type="text" class="form-control" placeholder="usertype 0/1" name="userType" />
+	</div>
+
+	<input type="submit" class="btn bt-lg btn-primary btn-block" value="create" />
+	<input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+</form>
