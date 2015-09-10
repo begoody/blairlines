@@ -1,14 +1,25 @@
 function userLogin(data){
+	if(data.user){  
+		if(data.user.userType==2){ $(".create-event").show(); }
+		if(data.user.userType==3){ $(".create-event").show();  }
 
-	if(data.user.userType==2){ $(".create-event").show(); }
-	if(data.user.userType==3){ $(".create-event").show();  }
-
-	$(".login-form, .get-started, .pilot-profile, .passenger-profile, .sign-up").hide();
-	$(".user-indicator").show();
-	$(".username").text(data.name);
+		$(".login-form, .get-started, .pilot-profile, .passenger-profile, .sign-up").hide();
+		$(".user-indicator").show();
+		$(".username").text(data.name);
+	}
 }
 
 $(document).ready(function(){
+
+	$(".exit").on("click",function(){  
+		$.ajax({
+			url: "user/logout",
+			success: function(data){
+				if(data.logout){ location.reload(); }
+			}
+		});
+	});
+
 
 	$.ajax({
 		url: "user/checksession",
