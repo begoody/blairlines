@@ -9,10 +9,10 @@ module.exports = {
 
   attributes: {
   	date : 'date',
-  	time : 'time',
+  	time : 'string',
   	description: 'string',
   	status: 'integer',
-  	type: 'integer',//need to extend
+  	eventType: 'integer',//need to extend
   	pilots: {
   		collection: 'pilot',
   		via: 'events'

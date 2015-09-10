@@ -9,6 +9,8 @@ module.exports = {
 
   attributes: {
   	name: 'string',
+    contactPerson: 'string',
+    phone: 'string',
   	location: 'string',
   	latLng: 'array',
   	workingHours: 'string',
@@ -20,7 +22,10 @@ module.exports = {
   	events:{
   		collection: 'event',
   		via: 'clubs'
-  	}
+  	},
+    user: {
+      model: 'user'
+    }
   }
   
 };

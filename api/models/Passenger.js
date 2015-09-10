@@ -8,10 +8,15 @@
 module.exports = {
 
   attributes: {
-  	name: 'string',
-  	age: 'integer',
-  	phone: 'string',
-  	email: 'string',
+  	name: {
+      type: 'string',
+      required: true
+    },
+    age: 'integer',
+    phone: {
+      type: 'string',
+      required: true,
+    },
   	subscriptionType: {
   		model: 'subscription'
   	},
@@ -22,7 +27,10 @@ module.exports = {
   	feedbacks:{
   		collection: 'feedback',
   		via: 'passengers'
-  	}
+  	},
+    user: {
+      model: 'user'
+    }
   }
   
 };
