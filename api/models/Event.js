@@ -12,7 +12,9 @@ module.exports = {
   	time : 'string',
   	description: 'string',
   	status: 'integer',
-  	eventType: 'integer',//need to extend
+  	eventType: {
+      model: 'eventType'
+    },//need to extend
   	pilots: {
   		collection: 'pilot',
   		via: 'events'
