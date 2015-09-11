@@ -48,6 +48,9 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Events</a></li>
+            <li><a href="#contact">Contacts</a></li>
           </ul>
 
           <form action="/user/login" class="navbar-form navbar-right login-form">
@@ -66,7 +69,7 @@
         </div>
 
     <!-- Navigation -->
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="top: 53px;"><i class="fa fa-bars"></i></a>
+   <!--  <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="top: 53px;"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-minus-circle fa-2x"></i></a>
@@ -89,7 +92,7 @@
                 <a href="#contact" onclick = $("#menu-close").click(); ><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contact</a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 
     <!-- Header -->
     <header id="top" class="header" style="padding-top: 85px;">
@@ -357,8 +360,15 @@
     <aside>
         <div class="container">
     	<hr>
-        <div style="position: absolute; width: 600px; height: 300px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">Foo bar</div>
-    	<div id="calendar"></div>
+        <div style="position: absolute; width: 700px; height: 310px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">
+        <!-- <div class="col-xs-12"><h3 class="text-muted">Event Cart!</h3></div>
+        <div class="col-xs-12"><h3 class="text-muted">Event Details</h3> -->
+        <div class="col-lg-6"><h3 class="text-muted">Event Details</h3><hr><h4>Type:</h4><h4>Description:</h4><h4>Club:</h4><h4>Date:</h4>
+        <h4>Time:</h4><button type="submit" class="btn btn-default">Book for this Event!</button></div>
+        <div class="col-lg-6"><h3 class="text-muted">Event Cart</h3><hr><button type="submit" class="btn btn-default">Pay Checkout!</button></div>
+        </div>
+        </div>
+        <div id="calendar"></div>
         </div>
     </aside>
 
