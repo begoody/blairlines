@@ -8,7 +8,7 @@
 module.exports = {
 
   attributes: {
-  	date : 'date',
+  	date : 'datetime',
   	time : 'string',
   	description: 'string',
   	status: 'integer',
