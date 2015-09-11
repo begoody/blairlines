@@ -134,6 +134,13 @@ module.exports = {
 
 		});
 		} else { res.json({'error':1}); }
+	},
+	'logout': function(req,res,next){
+		if(req.session.authenticated){ 
+			req.session.destroy(function(err) {
+           		return res.json({"logout" : "1"});
+      		});
+		}
 	}
 };
 
