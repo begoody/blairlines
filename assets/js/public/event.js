@@ -7,13 +7,13 @@ function makeClubsList(){
 			var club_option_html = "";
 			for(var i=0; i<data.length; i++){
 				club_option_html += "<option value="+data[i].id+">"+data[i].name+"</option>";
-				$(".form-control[name=club]").html(club_option_html);
+				$(".form-control[name=clubs]").html(club_option_html);
 			}
 		}
 	});
 }
 
-$(document).ready(function(){ console.log('asdasd');
+$(document).ready(function(){
 	$('#inputDate').datepicker({ dateFormat: "yy-mm-dd" });
 	
 	$(".create-event").on("click",function(){
@@ -82,4 +82,60 @@ $(document).ready(function(){ console.log('asdasd');
 
 		e.preventDefault();
 	});
+
+
+	$.getScript('js/vendor/fullcalendar.js', function() {
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    
+    $.ajax({
+    	url: "event/",
+    	dataType: "JSON",
+    	success: function(data){
+
+    		//console.log(data);
+    		eventArr = [];
+    		for(i=0; i<data.length; i++){
+
+    			var formatDateTime = data[i].date.split("T");
+    			var formatDate = formatDateTime[0].split("-");
+
+    			eventArr.push({ 
+    				id: data[i].id, 
+    				title: data[i].eventType.title, 
+    				start: new Date(formatDate[0],formatDate[1]-1,formatDate[2]) 
+    			});
+
+    		}
+    		console.log(eventArr);
+	    	 $('#calendar').fullCalendar({
+			 height: 500,
+			 disableDragging: true,
+			 disableResizing: true,
+		        header: {
+		            left: 'prev,next today',
+		            center: 'title',
+		            right: 'month,agendaWeek,agendaDay'
+		        },
+		        editable: true,
+		        events: eventArr,
+			    eventClick: function(event) {
+				    if (event.title) {
+				        alert("ID: " + event.id + "\r\n" + "Event: " + event.title + "\r\n" + "Date: " + event.start + " - " + event.end);
+					 $(this).css('border-color', 'red');
+				        return false;
+				    }
+				}
+			});
+
+    	}
+
+    });   
+        
+    
+	});
+
 });

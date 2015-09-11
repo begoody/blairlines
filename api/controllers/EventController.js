@@ -24,6 +24,17 @@ module.exports = {
 			res.json(event);
 
 		});
+	},
+	'index': function(req,res,next){
+		Event.find().populate('eventType').populate('clubs').exec(function findEvent(err,event){ 
+			if(err){ 
+				res.json(err);
+			}
+
+			res.json(event);
+
+		});
+
 	}
 };
 
