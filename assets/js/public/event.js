@@ -25,7 +25,7 @@ $(document).ready(function(){
 		makeClubsList();
 		
 	});
-	
+
 	$(".create-event-form").submit(function(e){
 
 		console.log('foo');
@@ -82,7 +82,30 @@ $(document).ready(function(){
 
 		e.preventDefault();
 	});
+	
+	$(".event-close").on("click",function(){  
 
+		$(".event-card").hide();
+
+	});
+
+	$(".join-event-button").on("click",function(){
+
+		$(".event-cart").show();
+	});
+
+	$(".confirm-event-button").on("click",function(){
+		var eventId = $(this).attr("data-event-id");  
+		$.ajax({
+			url: "event/apply",
+			dataType: "JSON",
+			data: {"event": eventId },
+			success: function(data){
+				$(".already-applied-event, .event-cart, .join-event-button").toggle();
+			}
+
+		});
+	});
 
 	$.getScript('js/vendor/fullcalendar.js', function() {
 
@@ -123,11 +146,47 @@ $(document).ready(function(){
 		        editable: true,
 		        events: eventArr,
 			    eventClick: function(event) {
-				    if (event.title) {
-				        alert("ID: " + event.id + "\r\n" + "Event: " + event.title + "\r\n" + "Date: " + event.start + " - " + event.end);
-					 $(this).css('border-color', 'red');
-				        return false;
-				    }
+
+			    	$(".join-event-button, .event-cart, .already-applied-event, .signup-before").hide();
+
+			    	$(".event-card").show();
+			    	$.ajax({
+			    		url: "event/"+event.id,
+			    		dataType: "JSON",
+			    		success: function(data){
+			    			console.log(data);
+			    			var date = data.date.split("T");
+			    			$(".event-card-type").text(data.eventType.title);
+			    			$(".event-card-description").text(data.description);
+			    			$(".event-card-club").text(data.clubs[0].name);
+			    			$(".event-card-date").text(date[0]);
+			    			$(".event-card-time").text(data.time);
+			    			$(".confirm-event-button").attr("data-event-id",data.id);
+
+			    			var alreadyAppliedEvent = false;
+
+			    			if(userObject.user){
+
+			    				for(pass in data.passengers){
+			    					if(pass.id == userObject.user.PassengerId){ alreadyAppliedEvent = true; console.log(1); }
+			    				}
+
+			    				if(userObject.user.userType==1 && !alreadyAppliedEvent ){ $(".join-event-button").show(); } 
+			    				if(alreadyAppliedEvent){ $(".already-applied-event").show(); }
+
+			    			} else {
+			    				$(".signup-before").show();
+			    			}
+			    			
+			    		}
+			    		
+			    	});
+				    
+				  //   if (event.title) {
+				  //       alert("ID: " + event.id + "\r\n" + "Event: " + event.title + "\r\n" + "Date: " + event.start + " - " + event.end);
+					 // $(this).css('border-color', 'red');
+				  //       return false;
+				  //   }
 				}
 			});
 

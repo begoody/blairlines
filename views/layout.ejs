@@ -45,11 +45,20 @@
 
         <div id="navbar" class="navbar navbar-default navbar-fixed-top" style="width: 100%; opacity: 0.87;">
           <ul class="nav navbar-nav">
+<<<<<<< HEAD
             <li class="active"><a href="#top"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
             <li><a href="#about"><i class="fa fa-book fa-lg"></i>&nbsp;About</a></li>
             <li><a href="#services"><i class="fa fa-plane fa-lg"></i>&nbsp;Services</a></li>
             <li><a href="#portfolio"><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a></li>
             <li><a href="#contact"><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contacts</a></li>
+=======
+            <li class="active"><a href="#top">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Events</a></li>
+            <li><a href="#contact">Contacts</a></li>
+>>>>>>> c44b1f0ba87c0d3599ae4fcfbd4e20fb81a0cd20
           </ul>
 
           <form action="/user/login" class="navbar-form navbar-right login-form">
@@ -393,17 +402,35 @@
     <!-- Callout -->
     <aside>
         <div class="container">
-    	<hr>
-        <div style="position: absolute; width: 700px; height: 310px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">
-        <!-- <div class="col-xs-12"><h3 class="text-muted">Event Cart!</h3></div>
-        <div class="col-xs-12"><h3 class="text-muted">Event Details</h3> -->
-        <div class="col-lg-6"><h3 class="text-muted">Event Details</h3><hr><h4>Type:</h4><h4>Description:</h4><h4>Club:</h4><h4>Date:</h4>
-        <h4>Time:</h4><button type="submit" class="btn btn-default">Book for this Event!</button></div>
-        <div class="col-lg-6"><h3 class="text-muted">Event Cart</h3><hr><button type="submit" class="btn btn-default">Pay Checkout!</button></div>
-        </div>
+        	<hr>
+            <div class="event-card" style="display: none; position: absolute; width: 700px; height: 310px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">
+            <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 10px;">
+                <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
+            </div>
+                <div class="col-lg-6">
+                    <h3 class="text-muted event-card-type"></h3>
+                    <hr>
+                    <h4 class="event-card-club"></h4>
+                    <p class="event-card-description"></p>
+                    
+                    <h4 class="event-card-date"></h4>
+                    <h4 class="event-card-time"></h4>
+                    <button type="submit" class="btn btn-default join-event-button" style="display: none;">Book for this Event!</button>
+                    <button type="submit" class="btn btn-default signup-before" style="display: none;">Signup and book this Event!</button>
+                </div>
+                <div class="col-lg-6 event-cart" style="display: none;">
+                    <h3 class="text-muted">Event Cart</h3>
+                    <hr>
+                    <button type="submit" class="btn btn-default confirm-event-button" data-event-id="">Pay Checkout!</button>
+                </div>
+                <div class="col-lg-6 already-applied-event" style="display: none;">
+                    <h3 class="text-muted">Event</h3>
+                    <hr>
+                    <p>You successfully applied for this event!</p>
+                </div>
+            </div>
         </div>
         <div id="calendar"></div>
-        </div>
     </aside>
 
     <!-- Portfolio -->
