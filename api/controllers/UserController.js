@@ -54,6 +54,7 @@ module.exports = {
 							passenger.user = user;
 							req.session.UserName = passenger.name;
 							req.session.UserType = user.userType;
+							req.session.PassengerId = passenger.id;
 							res.json(passenger);
 						}else { res.json(err); }	
 						
