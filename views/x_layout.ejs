@@ -55,12 +55,9 @@
           <form action="/user/login" class="navbar-form navbar-right login-form">
 
             <div class="form-group">
-	         <i class="fa fa-user"></i>
                 <input type="text" class="form-control" placeholder="email"  name="email"/>
             </div>
-	     &nbsp;
             <div class="form-group">
-		  <i class="fa fa-lock"></i>
                 <input type="password" class="form-control" placeholder="password" name="password"/>
             </div>
             <button type="submit" class="btn btn-default">Login</button>
@@ -106,70 +103,44 @@
             <a href="#" class="btn btn-dark btn-lg create-event" style="display: none;">Create event</a>
 
             <div class="header-forms container" style="text-align: left;">
+            <div class="container sign-up" style="width: 400px; hieght: 200px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
-	     <!-- Signup Form -->
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Signup form</h2>
 
-            <div class="container sign-up" style="width: 600px; display: none; background: white; opacity: 0.87; padding: 30px;">
-		    <h4 class="modal-title" id="myModalLabel">Signup to www.BlairLines.com</h4>
-		    <div class="row">
-                  <div class="col-xs-6">
-                      <div class="well">
-                          <form class="signup-form" action="/user/create">
-                              <div class="form-group">
-                                  <label for="exampleInputEmail1" class="control-label">Email</label>
-                                  <input type="text" class="form-control" id="exampleInputEmail1" name="email" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
-                                  <span class="help-block"></span>
-                              </div>
-                              <div class="form-group">
-                                  <label for="exampleInputPassword1" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="" required="" title="Please enter your password">
-                                  <span class="help-block"></span>
-                              </div>
-                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                              <div class="radio">
-                              <label>
-                                <input type="radio" name="userType" id="optionsRadios1" value="1" checked>
-                                Passenger
-                              </label>
-                              </div>
-                              <div class="radio">
-                                <label>
-                                  <input type="radio" name="userType" id="optionsRadios2" value="2" >
-                                  Pilot
-                                </label>
-                              </div>
-                              <div class="radio">
-                                <label>
-                                  <input type="radio" name="userType" id="optionsRadios3" value="3" >
-                                  Club
-                                </label>
-                              </div>
-                              <div class="checkbox">
-                                  <label>
-                                      <input type="checkbox" name="remember" id="remember"> Remember login
-                                  </label>
-                                  <p class="help-block">(if this is a private computer)</p>
-                              </div>
-                              <button type="submit" class="btn btn-success btn-block">Signup</button>
-                              <!--<a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
-                          </form>
-                      </div>
-                  </div>
-                  <div class="col-xs-6">
-                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
-                      <ul class="list-unstyled" style="line-height: 2">
-                          <li><span class="fa fa-check text-success"></span> Fly around New Zealand</li>
-                          <li><span class="fa fa-check text-success"></span> Cheap & affordable flights</li>
-                          <li><span class="fa fa-check text-success"></span> Explore the wonders</li>
-                          <li><span class="fa fa-check text-success"></span> Fast booking</li>
-                          <li><span class="fa fa-check text-success"></span> Get exciting freebies <small>(only new customers)</small></li>
-                          <li><a href="/read-more/"><u>Read more</u></a></li>
-                      </ul>
-                      <p><a href="/new-customer/" class="btn btn-info btn-block">Yes please, register now!</a></p>
-                  </div>
-              </div>
+                </div>
+            
+                <form action="/user/create" class="signup-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1"  name="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password"/>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios1" value="1" checked>
+                        Passenger
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios2" value="2" >
+                        Pilot
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="userType" id="optionsRadios3" value="3" >
+                        Club
+                      </label>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
             </div>
-	     <!-- End Signup Form -->
 
             <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
@@ -230,37 +201,31 @@
                      <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
-	     
-	     <!-- Passenger Profile -->
+
             <div class="container passenger-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
-              <h4 class="modal-title" id="myModalLabel">Profile Information</h4>
+                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+                    <h2>Fill your profile</h2>
+                </div>
             
-                
-                          <form action="/passenger/create" novalidate="novalidate" class="profile-form">
-				  <p class="bg-warning"></p>
-                              <div class="form-group">
-                                  <label for="inputName" class="control-label">Name</label>
-                                  <input type="text" class="form-control" id="inputName" name="name" value="" required="" title="Please enter you name" placeholder="yout name">
-                                  <span class="help-block"></span>
-                              </div>
-                              <div class="form-group">
-                                  <label for="inputAge" class="control-label">Age</label>
-                                  <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"title="Please enter your age">
-                                  <span class="help-block"></span>
-                              </div>
-							  <div class="form-group">
-                                  <label for="inputPhone" class="control-label">Contact</label>
-                                  <input type="text" class="form-control" id="inputPhone" name="phone" title="Please enter your contact number">
-                                  <span class="help-block"></span>
-                              </div>
-                              <button type="submit" class="btn btn-success btn-block">Submit</button>
-                          </form>
-                     
+                <form action="/passenger/create" class="profile-form">
+                    <p class="bg-warning"></p>
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAge">Age</label>
+                        <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                    </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                </form>
             </div>
-	     <!-- End Passenger Profile -->
 
-			
             <div class="container event-block" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
                 
                     <h2 style="text-align: center;">Create new event</h2>
@@ -498,7 +463,7 @@
                         </li>
                     </ul>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; BlairLines.co.nz 2015</p>
+                    <p class="text-muted">Copyright &copy; FlyHigh.co.nz 2015</p>
                 </div>              
             </div>
         </div>
