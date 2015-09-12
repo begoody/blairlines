@@ -35,6 +35,28 @@ module.exports = {
 
 		});
 
+	},
+	'apply': function(req,res,next){
+		var params = req.params.all();
+		Event.find({ id: params.event }).populate('passengers').exec(function findEvent(err,event){
+
+			if(err){ 
+				res.json(err);
+			}
+
+			Event.update({ id: params.event },{ passengers : req.session.PassengerId }).exec(function afterwards(err, updated){
+
+			  if (err) {
+			    res.json(err);
+			  }
+
+				res.json(updated);
+
+			});
+
+
+		});
+		//console.log(req.params.all());
 	}
 };
 

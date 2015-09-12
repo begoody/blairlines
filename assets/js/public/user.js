@@ -1,5 +1,8 @@
+var userObject = {};
+
 function userLogin(data){
-	if(data.user){  
+	if(data.user){
+		userObject = data;  
 		if(data.user.userType==2){ $(".create-event").show(); }
 		if(data.user.userType==3){ $(".create-event").show();  }
 
@@ -20,6 +23,12 @@ $(document).ready(function(){
 		});
 	});
 
+	$(".signup-before").on("click",function(){
+
+		$("a[href='#top']").click();
+		$(".get-started").click();
+
+	});
 
 	$.ajax({
 		url: "user/checksession",
