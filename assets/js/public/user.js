@@ -45,6 +45,13 @@ $(document).ready(function(){
 
 	});
 
+       $(".event-close").on("click",function(){
+
+		$(".sign-up").hide();
+		$(".get-started").show();		
+	});
+
+
 	$(".signup-form").submit(function(e){
 
 		e.preventDefault();
