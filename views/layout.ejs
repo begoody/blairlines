@@ -13,6 +13,7 @@
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/blairlines.css">
+    <link rel="stylesheet" href="/styles/bootstrap-datepicker.css">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.css">
@@ -24,6 +25,8 @@
     <link rel="stylesheet" href="/styles/fullcalendar.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/jquery-ui.min.css">
+    <link rel="stylesheet" href="/styles/jquery.timepicker.css">
+    <link rel="stylesheet" href="/styles/site.css">
     <!--STYLES END-->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!--SCRIPTS-->
@@ -32,11 +35,14 @@
     <script src="/js/public/CompareToDirective.js"></script>
     <script src="/js/public/event.js"></script>
     <script src="/js/public/user.js"></script>
+    <script src="/js/vendor/bootstrap-datepicker.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
     <script src="/js/vendor/bootstrap.min.js"></script>
     <script src="/js/vendor/ejs_production.js"></script>
     <script src="/js/vendor/fullcalendar.js"></script>
     <script src="/js/vendor/jquery-ui.min.js"></script>
+    <script src="/js/vendor/jquery.timepicker.js"></script>
+    <script src="/js/vendor/site.js"></script>
     <!--SCRIPTS END-->
 
 </head>
@@ -302,8 +308,29 @@
                         <input type="text" class="form-control" id="inputDate" name="date" style="width: 150px;"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputTime">Time</label>
-                        <input type="text" class="form-control" id="inputTime" name="time"/>
+                        <label for="inputTime">Time</label></br>
+			   <input id="durationFrom" type="text" class="time" name="timeStart"/> to <input id="durationto" type="text" class="time" name="timeEnd" />			   
+		<script>
+                $(function() {
+                    $('#durationFrom').timepicker({
+                        'timeFormat': 'H:i A',
+                        'minTime': '09:00',
+                        'maxTime': '18:30',
+                        //'showDuration': true
+                    });
+                });
+            </script>
+           <script>
+                $(function() {
+                    $('#durationto').timepicker({
+                        'timeFormat': 'H:i A',
+                        'minTime': '09:00',
+                        'maxTime': '18:30',
+                        //'showDuration': true
+                    });
+                });
+            </script>
+                        <!--<input type="text" class="form-control" id="inputTime" name="time"/> -->
                     </div>
                     <div class="form-group">
                         <label for="inputDescr">Event Description</label>
@@ -342,7 +369,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Explore the scenery of New Zealand!</h2>
-                    <p class="lead">FlyHigh features spectacle places of New Zealand. Photography courtesy of <a target="_blank" href="http://DarkSociety.com/">Dark Society</a>.</p>
+                    <p class="lead">BlairLines features spectacle places of New Zealand. Photography courtesy of <a target="_blank" href="http://DarkSociety.com/">Dark Society</a>.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -420,8 +447,23 @@
         <!-- /.container -->
     </section>
 
+
+ <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+<div class="col-lg-10 col-lg-offset-1 text-center">
+	<h2>Events</h2>
+	<i class="fa fa-file-text fa-1x" style="color: #7777dd; left: 10px;"> -Past or Completed</i>
+	&nbsp;&nbsp;<i class="fa fa-file-text fa-1x" style="color: #77dd77"> -Present or In progress</i>
+	&nbsp;&nbsp;<i class="fa fa-file-text fa-1x" style="color: #dd77dd"> -Future or Not Started</i>
+       <hr class="small">	
+	
+	
+</div>
+	
+	
     <!-- Callout -->
     <aside>
+        
         <div class="container">
         	<hr>
             <div class="event-card" style="display: none; position: absolute; width: 700px; height: 310px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">
@@ -454,13 +496,11 @@
         <div id="calendar"></div>
     </aside>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+   
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Events</h2>
-                    <hr class="small">
+                    <hr>  
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
