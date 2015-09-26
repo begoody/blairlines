@@ -13,100 +13,9 @@ function makeClubsList(){
 	});
 }
 
-$(document).ready(function(){
-	$('#inputDate').datepicker({ dateFormat: "yy-mm-dd" });
+function renderCalendar(){
+	$("#calendar").html("");
 	
-	$(".create-event").on("click",function(){
-		console.log("sdf");
-		$(this).hide();
-
-		$(".event-block").show();
-
-		makeClubsList();
-		
-	});
-
-	$(".create-event-form").submit(function(e){
-
-		console.log('foo');
-		var formData = $(this).serializeArray();
-
-		var url = $(this).attr("action");
-
-		var self = this;
-		$(self).find(".bg-warning").html("");
-		$(".form-group").removeClass("has-error");
-
-		$.ajax({
-
-			url: url,
-			method: "GET",
-			data: formData,
-			success: function(data){
-
-				if (data.error){
-					//console.error(data.invalidAttributes);
-
-					var arrErr = [];
-					
-					for(err in data.invalidAttributes){
-						
-						
-						
-						for (e in err){
-							console.log(err);
-							
-							if(data.invalidAttributes[err][e]){
-								arrErr.push({ "input":err,"message":data.invalidAttributes[err][e].message });
-							}
-						}
-
-					}
-
-					//console.log(arrErr.length);
-
-					for(error in arrErr) {
-						$(self).find("input[name="+arrErr[error].input+"]").parents(".form-group").addClass("has-error");
-						if(arrErr[error]){ $(self).find(".bg-warning").append(arrErr[error].input+": "+arrErr[error].message+"<br />"); }
-						
-					}
-
-				} else{
-					console.log(data)
-					$(self).html("<p>Event successfully created!</p>");
-				}
-
-			}
-
-		});
-
-		e.preventDefault();
-	});
-	
-	$(".event-close").on("click",function(){  
-
-		$(".event-card").hide();
-
-	});
-
-	$(".join-event-button").on("click",function(){
-
-		$(".event-cart").show();
-	});
-
-	$(".confirm-event-button").on("click",function(){
-		var eventId = $(this).attr("data-event-id");  
-		$.ajax({
-			url: "event/apply",
-			dataType: "JSON",
-			data: {"event": eventId },
-			success: function(data){
-				$(".already-applied-event, .event-cart, .join-event-button").toggle();
-			}
-
-		});
-	});
-
 	$.getScript('js/vendor/fullcalendar.js', function() {
 
     var date = new Date();
@@ -168,7 +77,7 @@ $(document).ready(function(){
 			    			if(userObject.user){
 
 			    				for(pass in data.passengers){
-			    					if(pass.id == userObject.user.PassengerId){ alreadyAppliedEvent = true; console.log(1); }
+			    					if(pass.id == userObject.user.PassengerId){ alreadyAppliedEvent = true; console.log("-"); console.log(userObject); console.log("-"); }
 			    				}
 
 			    				if(userObject.user.userType==1 && !alreadyAppliedEvent ){ $(".join-event-button").show(); } 
@@ -196,5 +105,105 @@ $(document).ready(function(){
         
     
 	});
+}
+
+$(document).ready(function(){
+	$('#inputDate').datepicker({ dateFormat: "yy-mm-dd" });
+	
+	$(".create-event").on("click",function(){
+
+		$(this).hide();
+
+		$(".event-block").show();
+
+		makeClubsList();
+		
+	});
+
+	$(".create-event-form").submit(function(e){
+
+		console.log('foo');
+		var formData = $(this).serializeArray();
+
+		var url = $(this).attr("action");
+
+		var self = this;
+		$(self).find(".bg-warning").html("");
+		$(".form-group").removeClass("has-error");
+
+		$.ajax({
+
+			url: url,
+			method: "GET",
+			data: formData,
+			success: function(data){
+
+				if (data.error){
+					//console.error(data.invalidAttributes);
+
+					var arrErr = [];
+					
+					for(err in data.invalidAttributes){
+						
+						
+						
+						for (e in err){
+							console.log(err);
+							
+							if(data.invalidAttributes[err][e]){
+								arrErr.push({ "input":err,"message":data.invalidAttributes[err][e].message });
+							}
+						}
+
+					}
+
+					//console.log(arrErr.length);
+
+					for(error in arrErr) {
+						$(self).find("input[name="+arrErr[error].input+"]").parents(".form-group").addClass("has-error");
+						if(arrErr[error]){ $(self).find(".bg-warning").append(arrErr[error].input+": "+arrErr[error].message+"<br />"); }
+						
+					}
+
+				} else{
+					console.log(data)
+					$(self).html("<p>Event successfully created!</p>");
+
+					renderCalendar();
+					setTimeout(function(){ $("a[href=#services]").click(); },1500);
+				}
+
+			}
+
+		});
+
+		e.preventDefault();
+	});
+	
+	$(".event-close").on("click",function(){  
+
+		$(".event-card").hide();
+
+	});
+
+	$(".join-event-button").on("click",function(){
+
+		$(".event-cart").show();
+	});
+
+	$(".confirm-event-button").on("click",function(){
+		var eventId = $(this).attr("data-event-id");  
+		$.ajax({
+			url: "event/apply",
+			dataType: "JSON",
+			data: {"event": eventId },
+			success: function(data){
+				$(".already-applied-event, .event-cart, .join-event-button").toggle();
+			}
+
+		});
+	});
+
+	renderCalendar();
 
 });

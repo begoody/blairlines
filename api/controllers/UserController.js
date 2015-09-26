@@ -19,6 +19,7 @@ module.exports = {
 
 			if(err){ 
 				res.json(err);
+				console.log(err);
 			}
 
 			if(user){
