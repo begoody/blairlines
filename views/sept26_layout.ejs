@@ -74,8 +74,9 @@
           <div class="container user-indicator" style="text-align: right; display: none;">	
 	     </br>     
 	     <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 15px;"></span>
-	     <span class="username" style="margin-left: 5px; margin-right: 30px;"></span>
-            <a href="#" class="exit">Log out</a>&rarr;
+	     <span class="username" style="margin-left: 5px; margin-right: 13px;"></span>
+	    <i class="fa fa-sign-out fa-1x" style="font-size: 20px;"></i>            
+           <a href="#" class="exit">Log out</a>
           </div>
         </div>
 
@@ -97,8 +98,8 @@
                 <a href="#services" onclick = $("#menu-close").click(); ><i class="fa fa-plane fa-lg"></i>&nbsp;Services</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); ><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a>
-            </li>
+                <a href="#portfolio" onclick = $("#menu-close").click(); ><i class="fa fa-calendar fa-lg"></i>&nnts</a>
+            </li>bsp;Eve
             <li>
                 <a href="#contact" onclick = $("#menu-close").click(); ><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contact</a>
             </li>
@@ -118,12 +119,16 @@
 
 	     <!-- Signup Form -->
 
-            <div class="container sign-up" style="width: 600px; display: none; background: white; opacity: 0.87; padding: 30px;">
-		    <h4 class="modal-title" id="myModalLabel">Signup to www.BlairLines.com</h4>
-		    <div class="row">
+            <div class="container sign-up" style="width: 600px; display: none; background: white; opacity: 0.87; padding: 20px;">
+		   
+		    <!-- <h4 class="modal-title" id="myModalLabel">Signup to www.BlairLines.com</h4> -->
+		      		  
+                  <div class="row">
                   <div class="col-xs-6">
                       <div class="well">
                           <form class="signup-form" action="/user/create">
+			      <p class="bg-warning"></p>
+
                               <div class="form-group">
                                   <label for="exampleInputEmail1" class="control-label">Email</label>
                                   <input type="text" class="form-control" id="exampleInputEmail1" name="email" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
@@ -162,9 +167,7 @@
                               <button type="submit" class="btn btn-success btn-block">Signup</button>
                               <!--
 				   <a href="#" class="btn btn-default btn-block">Help to login</a>-->
-				   <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 10px;">
-              		  <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
-            		         </div>
+				 
 				  
                           </form>
                       </div>
@@ -178,50 +181,67 @@
                           <li><span class="fa fa-check text-success"></span> Explore the wonders</li>
                           <li><span class="fa fa-check text-success"></span> Fast booking</li>
                           <li><span class="fa fa-check text-success"></span> Get exciting freebies <small>(only new customers)</small></li>
-                          <li><a href="#"><u>Read more</u></a></li>
+                          <!-- <li><a href="#"><u>Read more</u></a></li> -->
                       </ul>
-                      <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p>
-                  </div>		  
+                      <!-- <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p> -->
+			   <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
+              		  <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
+            		         </div>
+
+                  </div>
               </div>
 		
             </div>
 	     <!-- End Signup Form -->
 
-            <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
-
-                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+         <!-- Clubs Profile -->
+         <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+                    <div class="starter-template" style="padding: 40px 15px; text-align: center;">
                     <h2>Fill your club's profile</h2>
                 </div>
-            
+             <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well" style="width: 350px;">
                 <form action="/club/create" class="profile-form">
                     <p class="bg-warning"></p>
                     <div class="form-group">
-                        <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                           <label for="inputName" class="control-label">Name</label>
+                          <input type="text" class="form-control" id="inputName" name="name" value="" required="" title="Please enter you name"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputContactPerson">Contact person</label>
-                        <input type="text" class="form-control" id="inputContactPerson" name="contactPerson" />
+                        <label for="inputContactPerson" class="control-label">Contact person</label>
+                        <input type="text" class="form-control" id="inputContactPerson" name="contactPerson" value="" required="" title="Please enter contact person"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputPhone">Phone</label>
-                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                        <label for="inputPhone" class="control-label">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone" value="" required="" title="Please enter contact number"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputLocation">Location</label>
-                        <input type="text" class="form-control" id="inputLocation" name="location"/>
+                        <label for="inputLocation" class="control-label">Location</label>
+                        <input type="text" class="form-control" id="inputLocation" name="location" value="" required="" title="Please enter contact number"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputWorkingHours">Working hours</label>
-                        <input type="text" class="form-control" id="inputWorkingHours" name="workingHours"/>
+                        <label for="inputWorkingHours" class="control-label">Working hours</label>
+                        <input type="text" class="form-control" id="inputWorkingHours" name="workingHours" value="" required="" title="Please enter clubs working hours"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputDescription">Description</label>
-                        <textarea class="form-control" id="inputDescription" name="description"></textarea>
+                        <label for="inputDescription" class="control-label">Description</label>
+                        <textarea class="form-control" id="inputDescription" name="description" alue="" required="" title="Please enter clubs description"></textarea>
+                          <span class="help-block"></span>
                     </div>
-                     <button type="submit" class="btn btn-default">Submit</button>
+                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
             </div>
+            </div>
+            </div>
+                
+            </div>
+         <!-- End Clubs Profile -->
 
             <div class="container pilot-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
@@ -328,7 +348,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Explore the scenery of New Zealand!</h2>
-                    <p class="lead">FlyHigh features spectacle places of New Zealand. Photography courtesy of <a target="_blank" href="http://DarkSociety.com/">Dark Society</a>.</p>
+                    <p class="lead">BlairLines features spectacle places of New Zealand. Photography courtesy of <a target="_blank" href="http://DarkSociety.com/">Dark Society</a>.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -406,6 +426,9 @@
         <!-- /.container -->
     </section>
 
+
+ <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
     <!-- Callout -->
     <aside>
         <div class="container">
@@ -440,8 +463,7 @@
         <div id="calendar"></div>
     </aside>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+   
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
