@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Blairlines - DarkSociety</title>
 
-<head>
-
+    <!-- Viewport mobile tag for sensible mobile support -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="Social platform for pilots and passengers" content="">
     <meta name="DarkSociety" content="">
 
-    <title>BlairLines - DarkSociety</title>
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/blairlines.css">
@@ -20,6 +41,7 @@
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/build/ng-admin.min.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/fullcalendar.css">
@@ -28,6 +50,7 @@
     <link rel="stylesheet" href="/styles/jquery.timepicker.css">
     <link rel="stylesheet" href="/styles/site.css">
     <!--STYLES END-->
+<<<<<<< HEAD
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
@@ -46,6 +69,28 @@
     <!--SCRIPTS END-->
 
 </head>
+=======
+<!--     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ -->
+
+ <!--SCRIPTS-->
+ <script src="/js/dependencies/sails.io.js"></script>
+ <script src="/js/vendor/jquery-1.11.3.min.js"></script>
+ <script src="/js/build/ng-admin.min.js"></script>
+ <script src="/js/build/admin.js"></script>
+ <script src="/js/public/event.js"></script>
+ <script src="/js/public/user.js"></script>
+ <script src="/js/vendor/bootstrap-datepicker.js"></script>
+ <script src="/js/vendor/bootstrap.js"></script>
+ <script src="/js/vendor/bootstrap.min.js"></script>
+ <script src="/js/vendor/ejs_production.js"></script>
+ <script src="/js/vendor/fullcalendar.js"></script>
+ <script src="/js/vendor/jquery-ui.min.js"></script>
+ <script src="/js/vendor/jquery.timepicker.js"></script>
+ <script src="/js/vendor/site.js"></script>
+ <!--SCRIPTS END-->   
+  </head>
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
 
 <body>
 
@@ -54,28 +99,49 @@
             <li class="active"><a href="#top"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
             <li><a href="#about"><i class="fa fa-book fa-lg"></i>&nbsp;About</a></li>
             <li><a href="#services"><i class="fa fa-plane fa-lg"></i>&nbsp;Services</a></li>
+<<<<<<< HEAD
             <li><a href="#events"><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a></li>
+=======
+            <li><a href="#portfolio"><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a></li>
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
             <li><a href="#contact"><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contacts</a></li>
           </ul>
 
           <form action="/user/login" class="navbar-form navbar-right login-form">
 
             <div class="form-group">
+<<<<<<< HEAD
 	         <i class="fa fa-user"></i>
                 <input type="text" class="form-control" placeholder="email"  name="email"/>
             </div>
 	     &nbsp;
             <div class="form-group">
 		  <i class="fa fa-lock"></i>
+=======
+           <i class="fa fa-user"></i>
+                <input type="text" class="form-control" placeholder="email"  name="email"/>
+            </div>
+       &nbsp;
+            <div class="form-group">
+      <i class="fa fa-lock"></i>
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
                 <input type="password" class="form-control" placeholder="password" name="password"/>
             </div>
             <button type="submit" class="btn btn-default">Login</button>
           </form>
+<<<<<<< HEAD
           <div class="container user-indicator" style="text-align: right; display: none;">	
 	     </br>     
 	     <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 15px;"></span>
 	     <span class="username" style="margin-left: 5px; margin-right: 13px;"></span>
 	    <i class="fa fa-sign-out fa-1x" style="font-size: 20px;"></i>            
+=======
+          <div class="container user-indicator" style="text-align: right; display: none;">  
+       </br>     
+       <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 15px;"></span>
+       <a href="/admin" target="_blank" class="username" style="margin-left: 5px; margin-right: 13px;"></a>
+      <i class="fa fa-sign-out fa-1x" style="font-size: 20px;"></i>            
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
            <a href="#" class="exit">Log out</a>
           </div>
         </div>
@@ -116,6 +182,7 @@
             <a href="#" class="btn btn-dark btn-lg create-event" style="display: none;">Create event</a>
 
             <div class="header-forms container" style="text-align: left;">
+<<<<<<< HEAD
 
 	     <!-- Signup Form -->
 
@@ -123,11 +190,24 @@
 		   
 		    <!-- <h4 class="modal-title" id="myModalLabel">Signup to www.BlairLines.com</h4> -->
 		      		  
+=======
+
+       <!-- Signup Form -->
+
+            <div class="container sign-up" style="width: 600px; display: none; background: white; opacity: 0.87; padding: 20px;">
+       
+        <!-- <h4 class="modal-title" id="myModalLabel">Signup to www.BlairLines.com</h4> -->
+                
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
                   <div class="row">
                   <div class="col-xs-6">
                       <div class="well">
                           <form class="signup-form" action="/user/create">
+<<<<<<< HEAD
 			      <p class="bg-warning"></p>
+=======
+            <p class="bg-warning"></p>
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
 
                               <div class="form-group">
                                   <label for="exampleInputEmail1" class="control-label">Email</label>
@@ -166,6 +246,7 @@
                               </div>
                               <button type="submit" class="btn btn-success btn-block">Signup</button>
                               <!--
+<<<<<<< HEAD
 				   <a href="#" class="btn btn-default btn-block">Help to login</a>-->
 				 
 				  
@@ -173,6 +254,15 @@
                       </div>
                   </div>
 		    
+=======
+           <a href="#" class="btn btn-default btn-block">Help to login</a>-->
+         
+          
+                          </form>
+                      </div>
+                  </div>
+        
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
                   <div class="col-xs-6">
                       <p class="lead">Register now for <span class="text-success">FREE</span></p>
                       <ul class="list-unstyled" style="line-height: 2">
@@ -184,6 +274,7 @@
                           <!-- <li><a href="#"><u>Read more</u></a></li> -->
                       </ul>
                       <!-- <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p> -->
+<<<<<<< HEAD
 			   <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
               		  <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
             		         </div>
@@ -193,6 +284,17 @@
 		
             </div>
 	     <!-- End Signup Form -->
+=======
+         <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
+                    <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
+                         </div>
+
+                  </div>
+              </div>
+    
+            </div>
+       <!-- End Signup Form -->
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
 
          <!-- Clubs Profile -->
          <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
@@ -266,15 +368,24 @@
                      <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
+<<<<<<< HEAD
 	     
 	     <!-- Passenger Profile -->
+=======
+       
+       <!-- Passenger Profile -->
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
             <div class="container passenger-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
               <h4 class="modal-title" id="myModalLabel">Profile Information</h4>
             
                 
                           <form action="/passenger/create" novalidate="novalidate" class="profile-form">
+<<<<<<< HEAD
 				  <p class="bg-warning"></p>
+=======
+          <p class="bg-warning"></p>
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
                               <div class="form-group">
                                   <label for="inputName" class="control-label">Name</label>
                                   <input type="text" class="form-control" id="inputName" name="name" value="" required="" title="Please enter you name" placeholder="yout name">
@@ -285,7 +396,11 @@
                                   <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"title="Please enter your age">
                                   <span class="help-block"></span>
                               </div>
+<<<<<<< HEAD
 							  <div class="form-group">
+=======
+                <div class="form-group">
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
                                   <label for="inputPhone" class="control-label">Contact</label>
                                   <input type="text" class="form-control" id="inputPhone" name="phone" title="Please enter your contact number">
                                   <span class="help-block"></span>
@@ -294,9 +409,15 @@
                           </form>
                      
             </div>
+<<<<<<< HEAD
 	     <!-- End Passenger Profile -->
 
 			
+=======
+       <!-- End Passenger Profile -->
+
+      
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
             <div class="container event-block" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
                 
                     <h2 style="text-align: center;">Create new event</h2>
@@ -309,8 +430,13 @@
                     </div>
                     <div class="form-group">
                         <label for="inputTime">Time</label></br>
+<<<<<<< HEAD
 			   <input id="durationFrom" type="text" class="time" name="timeStart" required="" title="Please select start time" /> to <input id="durationto" type="text" class="time" name="timeEnd" required="" title="Please select end time" />			   
 		<script>
+=======
+         <input id="durationFrom" type="text" class="time" name="timeStart"/> to <input id="durationto" type="text" class="time" name="timeEnd" />         
+    <script>
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
                 $(function() {
                     $('#durationFrom').timepicker({
                         'timeFormat': 'H:i A',
@@ -449,6 +575,7 @@
 
 
  <!-- Portfolio -->
+<<<<<<< HEAD
     <section id="events" class="portfolio">
 <div class="col-lg-10 col-lg-offset-1 text-center">
 	<h2>Events</h2>
@@ -461,11 +588,25 @@
 </div>
 	
 	
+=======
+    <section id="portfolio" class="portfolio">
+<div class="col-lg-10 col-lg-offset-1 text-center">
+  <h2>Events</h2>
+  <i class="fa fa-file-text fa-1x" style="color: #7777dd; left: 10px;"> -Past or Completed</i>
+  &nbsp;&nbsp;<i class="fa fa-file-text fa-1x" style="color: #77dd77"> -Present or In progress</i>
+  &nbsp;&nbsp;<i class="fa fa-file-text fa-1x" style="color: #dd77dd"> -Future or Not Started</i>
+       <hr class="small"> 
+  
+  
+</div>
+  
+  
+>>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
     <!-- Callout -->
     <aside>
         
         <div class="container">
-        	<hr>
+          <hr>
             <div class="event-card" style="display: none; position: absolute; width: 700px; height: 310px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">
             <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 10px;">
                 <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
@@ -623,7 +764,56 @@
     });
     </script>
 
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+     
 
     
-</body>
+  </body>
 </html>

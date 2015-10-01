@@ -6,6 +6,19 @@
  */
 
 module.exports = {
+
+	'index': function(req,res,next){
+		Event.find().exec(function findEvent(err,event){ 
+			if(err){ 
+				res.json(err);
+			}
+
+			res.json(event);
+
+		});
+
+	},
+
 	'create': function(req,res,next){
 
 		
@@ -25,7 +38,8 @@ module.exports = {
 
 		});
 	},
-	'index': function(req,res,next){
+	// second index need to change 
+	'calendar': function(req,res,next){
 		Event.find().populate('eventType').populate('clubs').exec(function findEvent(err,event){ 
 			if(err){ 
 				res.json(err);
@@ -58,5 +72,7 @@ module.exports = {
 		});
 		//console.log(req.params.all());
 	}
+
+	
 };
 

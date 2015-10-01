@@ -6,6 +6,19 @@
  */
 
 module.exports = {
+	
+	'index': function(req,res,next){
+		Club.find().exec(function findEvent(err,club){ 
+			if(err){ 
+				res.json(err);
+			}
+
+			res.json(club);
+
+		});
+
+	},
+
 	'create': function(req,res,next){
 
 		var params = req.params.all();
@@ -43,5 +56,7 @@ module.exports = {
 
 		});
 	}
+
+
 };
 

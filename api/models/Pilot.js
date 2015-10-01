@@ -8,28 +8,33 @@
 module.exports = {
 
   attributes: {
-  	name: {
-      type: 'string',
-      required: true
-    },
-    age: 'integer',
-    phone: {
-      type: 'string',
-      required: true,
-    },
-  	raiting: 'float',
+
+  	name:{
+  		type: 'string',
+  		required: true
+  	},
+
+  	age: 'integer',
+  	phone: {
+  		type: 'string',
+  		required: true,
+  	},
+
+  	rating: 'FLOAT',
   	status: 'integer',
+
   	clubs:{
-  		collection: "club",
+  		collection : "club",
   		via: 'pilots'
   	},
   	events: {
   		collection: 'event',
   		via: 'pilots'
   	},
-    user: {
-      model: 'user'
-    }
+  	user: {
+  		model: 'user'
+  	}
+
   }
 };
 

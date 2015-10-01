@@ -35,19 +35,23 @@ module.exports.routes = {
   '/': {
     view: 'layout'
   },
+  
   'user/login':{
     controller: 'userController',
     action: 'login'
   },
-  'GET /default': { view: 'default'},
-  'GET /signup': { view: 'signup' },
-  /*,
 
-  '/user/new/' : {
+  // 'GET /default': { view: 'default'},
+  // 'GET /signup': { view: 'signup' },
 
-    controller: 'userController',
-    action: 'new'
-  }*/
+  'GET /admin':{
+    view: 'admin'
+  }
+
+
+
+  
+
 
   /***************************************************************************
   *                                                                          *
