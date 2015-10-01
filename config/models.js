@@ -27,7 +27,6 @@ module.exports.models = {
   * See http://sailsjs.org/#!/documentation/concepts/ORM/model-settings.html  *
   *                                                                          *
   ***************************************************************************/
-   migrate: 'alter',
-   connection: 'pg'
+   migrate: 'alter'
 
 };

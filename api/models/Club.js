@@ -11,22 +11,21 @@ module.exports = {
   	name: 'string',
     contactPerson: 'string',
     phone: 'string',
-  	location: 'string',
-  	latLng: 'array',
-  	workingHours: 'string',
-  	description: 'string',
-  	pilots: {
-  		collection: 'pilot',
-  		via: 'clubs'
-  	},
-  	events:{
-  		collection: 'event',
-  		via: 'clubs'
-  	},
+    location: 'string',
+    latLng: 'array',
+    workingHours: 'string',
+    description: 'string',
+    pilots: {
+      collection: 'pilot',
+      via: 'clubs'
+    },
+    events:{
+      collection: 'event',
+      via: 'clubs'
+    },
     user: {
       model: 'user'
     }
   }
-  
 };
 
