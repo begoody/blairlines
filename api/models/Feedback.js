@@ -10,13 +10,14 @@ module.exports = {
   attributes: {
   	rate: 'integer',
   	description: 'string',
-  	event: {
+  	event:{
   		model: 'event'
   	},
   	passengers:{
   		model: 'passenger',
   		via: 'feedbacks'
   	}
+
   }
 };
 
