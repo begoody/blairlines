@@ -7,22 +7,32 @@
 
 module.exports = {
 
-  schema: true,
-
   attributes: {
-  	email: {
-  		type: 'email',
+
+  	email:{
+  		type:'email',
   		//email: true,
   		required: true,
   		unique: true
   	},
+
   	password: {
   		type: 'string',
   		required: true,
   	},
-  	userType: {
+
+  	userType:{
   		type: 'integer'
-  	}
+  	},
+
+    validationMessages: { //hand for i18n & l10n
+        email: {
+          required: 'Email is required',
+          unique: 'Email address is already taken'
+        }
+    }
+
+
   }
 };
 

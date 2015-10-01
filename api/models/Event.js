@@ -8,27 +8,33 @@
 module.exports = {
 
   attributes: {
-  	date : 'datetime',
-  	time : 'string',
+  	date: 'datetime',
+  	timeStart : 'string',
+        timeEnd : 'string',
   	description: 'string',
   	status: 'integer',
-  	eventType: {
-      model: 'eventType'
-    },//need to extend
-  	pilots: {
+
+  	eventType:{
+  		model: 'Eventtype'
+  	},
+
+  	pilots:{
   		collection: 'pilot',
   		via: 'events'
   	},
-  	passengers : {
-  		collection: 'passenger',
-  		via: 'events',
-  	},
-  	clubs : {
-  		collection: 'club',
-  		via: 'events'
-  	}
+
+    passengers: {
+      collection: 'passenger',
+      via: 'events',
+    },
+
+    clubs: {
+      collection: 'club',
+      via: 'events'
+    }
+
+
 
   }
-  
 };
 

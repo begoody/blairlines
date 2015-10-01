@@ -1,70 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Blairlines - DarkSociety</title>
 
-<head>
-
+    <!-- Viewport mobile tag for sensible mobile support -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="Social platform for pilots and passengers" content="">
     <meta name="DarkSociety" content="">
 
-    <title>BlairLines - DarkSociety</title>
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/blairlines.css">
+    <link rel="stylesheet" href="/styles/bootstrap-datepicker.css">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/build/ng-admin.min.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/fullcalendar.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/jquery-ui.min.css">
+    <link rel="stylesheet" href="/styles/jquery.timepicker.css">
+    <link rel="stylesheet" href="/styles/site.css">
     <!--STYLES END-->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/vendor/jquery-1.11.3.min.js"></script>
-    <script src="/js/public/CompareToDirective.js"></script>
-    <script src="/js/public/event.js"></script>
-    <script src="/js/public/user.js"></script>
-    <script src="/js/vendor/bootstrap.js"></script>
-    <script src="/js/vendor/bootstrap.min.js"></script>
-    <script src="/js/vendor/ejs_production.js"></script>
-    <script src="/js/vendor/fullcalendar.js"></script>
-    <script src="/js/vendor/jquery-ui.min.js"></script>
-    <!--SCRIPTS END-->
+<!--     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ -->
 
-</head>
+ <!--SCRIPTS-->
+ <script src="/js/dependencies/sails.io.js"></script>
+ <script src="/js/vendor/jquery-1.11.3.min.js"></script>
+ <script src="/js/build/ng-admin.min.js"></script>
+ <script src="/js/build/admin.js"></script>
+ <script src="/js/public/event.js"></script>
+ <script src="/js/public/user.js"></script>
+ <script src="/js/vendor/bootstrap-datepicker.js"></script>
+ <script src="/js/vendor/bootstrap.js"></script>
+ <script src="/js/vendor/bootstrap.min.js"></script>
+ <script src="/js/vendor/ejs_production.js"></script>
+ <script src="/js/vendor/fullcalendar.js"></script>
+ <script src="/js/vendor/jquery-ui.min.js"></script>
+ <script src="/js/vendor/jquery.timepicker.js"></script>
+ <script src="/js/vendor/site.js"></script>
+ <!--SCRIPTS END-->   
+  </head>
 
 <body>
 
-        <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+        <div id="navbar" class="navbar navbar-default navbar-fixed-top" style="width: 100%; opacity: 0.87;">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#top">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Events</a></li>
-            <li><a href="#contact">Contacts</a></li>
+            <li class="active"><a href="#top"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
+            <li><a href="#about"><i class="fa fa-book fa-lg"></i>&nbsp;About</a></li>
+            <li><a href="#services"><i class="fa fa-plane fa-lg"></i>&nbsp;Services</a></li>
+            <li><a href="#portfolio"><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a></li>
+            <li><a href="#contact"><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contacts</a></li>
           </ul>
 
           <form action="/user/login" class="navbar-form navbar-right login-form">
 
             <div class="form-group">
+           <i class="fa fa-user"></i>
                 <input type="text" class="form-control" placeholder="email"  name="email"/>
             </div>
+       &nbsp;
             <div class="form-group">
+      <i class="fa fa-lock"></i>
                 <input type="password" class="form-control" placeholder="password" name="password"/>
             </div>
             <button type="submit" class="btn btn-default">Login</button>
           </form>
-          <div class="container user-indicator" style="text-align: right; display: none;">
-            <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 20px;"></span><span class="username" style="margin-left: 10px; margin-right: 10px;"></span><a href="#" class="exit">Exit</a>&rarr;
+          <div class="container user-indicator" style="text-align: right; display: none;">  
+       </br>     
+       <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 15px;"></span>
+       <a href="/admin" target="_blank" class="username" style="margin-left: 5px; margin-right: 13px;"></a>
+      <i class="fa fa-sign-out fa-1x" style="font-size: 20px;"></i>            
+           <a href="#" class="exit">Log out</a>
           </div>
         </div>
 
@@ -86,8 +122,8 @@
                 <a href="#services" onclick = $("#menu-close").click(); ><i class="fa fa-plane fa-lg"></i>&nbsp;Services</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); ><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a>
-            </li>
+                <a href="#portfolio" onclick = $("#menu-close").click(); ><i class="fa fa-calendar fa-lg"></i>&nnts</a>
+            </li>bsp;Eve
             <li>
                 <a href="#contact" onclick = $("#menu-close").click(); ><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contact</a>
             </li>
@@ -100,84 +136,136 @@
             <h1>BlairLines</h1>
             <h3>Fly with your Family &amp; Friends</h3>
             <br>
-            <a href="#" class="btn btn-dark btn-lg get-started">Get started</a>
+            <a href="#" class="btn btn-dark btn-lg get-started">Signup now</a>
             <a href="#" class="btn btn-dark btn-lg create-event" style="display: none;">Create event</a>
 
             <div class="header-forms container" style="text-align: left;">
-            <div class="container sign-up" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
-                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
-                    <h2>Signup form</h2>
+       <!-- Signup Form -->
 
-                </div>
-            
-                <form action="/user/create" class="signup-form">
-                    <p class="bg-warning"></p>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1"  name="email"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password"/>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="userType" id="optionsRadios1" value="1" checked>
-                        Passenger
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="userType" id="optionsRadios2" value="2" >
-                        Pilot
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="userType" id="optionsRadios3" value="3" >
-                        Club
-                      </label>
-                    </div>
-                     <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+            <div class="container sign-up" style="width: 600px; display: none; background: white; opacity: 0.87; padding: 20px;">
+       
+        <!-- <h4 class="modal-title" id="myModalLabel">Signup to www.BlairLines.com</h4> -->
+                
+                  <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                          <form class="signup-form" action="/user/create">
+            <p class="bg-warning"></p>
+
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1" class="control-label">Email</label>
+                                  <input type="text" class="form-control" id="exampleInputEmail1" name="email" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="exampleInputPassword1" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="" required="" title="Please enter your password">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                              <div class="radio">
+                              <label>
+                                <input type="radio" name="userType" id="optionsRadios1" value="1" checked>
+                                Passenger
+                              </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="userType" id="optionsRadios2" value="2" >
+                                  Pilot
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="userType" id="optionsRadios3" value="3" >
+                                  Club
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember"> Remember login
+                                  </label>
+                                  <p class="help-block">(if this is a private computer)</p>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-block">Signup</button>
+                              <!--
+           <a href="#" class="btn btn-default btn-block">Help to login</a>-->
+         
+          
+                          </form>
+                      </div>
+                  </div>
+        
+                  <div class="col-xs-6">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> Fly around New Zealand</li>
+                          <li><span class="fa fa-check text-success"></span> Cheap & affordable flights</li>
+                          <li><span class="fa fa-check text-success"></span> Explore the wonders</li>
+                          <li><span class="fa fa-check text-success"></span> Fast booking</li>
+                          <li><span class="fa fa-check text-success"></span> Get exciting freebies <small>(only new customers)</small></li>
+                          <!-- <li><a href="#"><u>Read more</u></a></li> -->
+                      </ul>
+                      <!-- <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p> -->
+         <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
+                    <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
+                         </div>
+
+                  </div>
+              </div>
+    
             </div>
+       <!-- End Signup Form -->
 
-            <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
-
-                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
+         <!-- Clubs Profile -->
+         <div class="container club-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
+                    <div class="starter-template" style="padding: 40px 15px; text-align: center;">
                     <h2>Fill your club's profile</h2>
                 </div>
-            
+             <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well" style="width: 350px;">
                 <form action="/club/create" class="profile-form">
                     <p class="bg-warning"></p>
                     <div class="form-group">
-                        <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName"  name="name"/>
+                           <label for="inputName" class="control-label">Name</label>
+                          <input type="text" class="form-control" id="inputName" name="name" value="" required="" title="Please enter you name"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputContactPerson">Contact person</label>
-                        <input type="text" class="form-control" id="inputContactPerson" name="contactPerson" />
+                        <label for="inputContactPerson" class="control-label">Contact person</label>
+                        <input type="text" class="form-control" id="inputContactPerson" name="contactPerson" value="" required="" title="Please enter contact person"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputPhone">Phone</label>
-                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
+                        <label for="inputPhone" class="control-label">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone" value="" required="" title="Please enter contact number"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputLocation">Location</label>
-                        <input type="text" class="form-control" id="inputLocation" name="location"/>
+                        <label for="inputLocation" class="control-label">Location</label>
+                        <input type="text" class="form-control" id="inputLocation" name="location" value="" required="" title="Please enter contact number"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputWorkingHours">Working hours</label>
-                        <input type="text" class="form-control" id="inputWorkingHours" name="workingHours"/>
+                        <label for="inputWorkingHours" class="control-label">Working hours</label>
+                        <input type="text" class="form-control" id="inputWorkingHours" name="workingHours" value="" required="" title="Please enter clubs working hours"/>
+                          <span class="help-block"></span>
                     </div>
                     <div class="form-group">
-                        <label for="inputDescription">Description</label>
-                        <textarea class="form-control" id="inputDescription" name="description"></textarea>
+                        <label for="inputDescription" class="control-label">Description</label>
+                        <textarea class="form-control" id="inputDescription" name="description" alue="" required="" title="Please enter clubs description"></textarea>
+                          <span class="help-block"></span>
                     </div>
-                     <button type="submit" class="btn btn-default">Submit</button>
+                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
             </div>
+            </div>
+            </div>
+                
+            </div>
+         <!-- End Clubs Profile -->
 
             <div class="container pilot-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
@@ -202,31 +290,37 @@
                      <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
-
+       
+       <!-- Passenger Profile -->
             <div class="container passenger-profile" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
 
-                <div class="starter-template" style="padding: 40px 15px; text-align: center;">
-                    <h2>Fill your profile</h2>
-                </div>
+              <h4 class="modal-title" id="myModalLabel">Profile Information</h4>
             
-                <form action="/passenger/create" class="profile-form">
-                    <p class="bg-warning"></p>
-                    <div class="form-group">
-                        <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName"  name="name"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAge">Age</label>
-                        <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPhone">Phone</label>
-                        <input type="text" class="form-control" id="inputPhone" name="phone"/>
-                    </div>
-                     <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                
+                          <form action="/passenger/create" novalidate="novalidate" class="profile-form">
+          <p class="bg-warning"></p>
+                              <div class="form-group">
+                                  <label for="inputName" class="control-label">Name</label>
+                                  <input type="text" class="form-control" id="inputName" name="name" value="" required="" title="Please enter you name" placeholder="yout name">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="inputAge" class="control-label">Age</label>
+                                  <input type="text" class="form-control" id="inputAge" name="age" style="width: 50px;"title="Please enter your age">
+                                  <span class="help-block"></span>
+                              </div>
+                <div class="form-group">
+                                  <label for="inputPhone" class="control-label">Contact</label>
+                                  <input type="text" class="form-control" id="inputPhone" name="phone" title="Please enter your contact number">
+                                  <span class="help-block"></span>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-block">Submit</button>
+                          </form>
+                     
             </div>
+       <!-- End Passenger Profile -->
 
+      
             <div class="container event-block" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
                 
                     <h2 style="text-align: center;">Create new event</h2>
@@ -238,8 +332,29 @@
                         <input type="text" class="form-control" id="inputDate" name="date" style="width: 150px;"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputTime">Time</label>
-                        <input type="text" class="form-control" id="inputTime" name="time"/>
+                        <label for="inputTime">Time</label></br>
+         <input id="durationFrom" type="text" class="time" name="timeStart"/> to <input id="durationto" type="text" class="time" name="timeEnd" />         
+    <script>
+                $(function() {
+                    $('#durationFrom').timepicker({
+                        'timeFormat': 'H:i A',
+                        'minTime': '09:00',
+                        'maxTime': '18:30',
+                        //'showDuration': true
+                    });
+                });
+            </script>
+           <script>
+                $(function() {
+                    $('#durationto').timepicker({
+                        'timeFormat': 'H:i A',
+                        'minTime': '09:00',
+                        'maxTime': '18:30',
+                        //'showDuration': true
+                    });
+                });
+            </script>
+                        <!--<input type="text" class="form-control" id="inputTime" name="time"/> -->
                     </div>
                     <div class="form-group">
                         <label for="inputDescr">Event Description</label>
@@ -278,7 +393,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Explore the scenery of New Zealand!</h2>
-                    <p class="lead">FlyHigh features spectacle places of New Zealand. Photography courtesy of <a target="_blank" href="http://DarkSociety.com/">Dark Society</a>.</p>
+                    <p class="lead">BlairLines features spectacle places of New Zealand. Photography courtesy of <a target="_blank" href="http://DarkSociety.com/">Dark Society</a>.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -356,10 +471,25 @@
         <!-- /.container -->
     </section>
 
+
+ <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+<div class="col-lg-10 col-lg-offset-1 text-center">
+  <h2>Events</h2>
+  <i class="fa fa-file-text fa-1x" style="color: #7777dd; left: 10px;"> -Past or Completed</i>
+  &nbsp;&nbsp;<i class="fa fa-file-text fa-1x" style="color: #77dd77"> -Present or In progress</i>
+  &nbsp;&nbsp;<i class="fa fa-file-text fa-1x" style="color: #dd77dd"> -Future or Not Started</i>
+       <hr class="small"> 
+  
+  
+</div>
+  
+  
     <!-- Callout -->
     <aside>
+        
         <div class="container">
-        	<hr>
+          <hr>
             <div class="event-card" style="display: none; position: absolute; width: 700px; height: 310px; background: white; z-index: 100; left: 50%; margin-left: -300px; box-shadow: 0 0 3px grey;">
             <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 10px;">
                 <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
@@ -373,7 +503,7 @@
                     <h4 class="event-card-date"></h4>
                     <h4 class="event-card-time"></h4>
                     <button type="submit" class="btn btn-default join-event-button" style="display: none;">Book for this Event!</button>
-                    <button type="submit" class="btn btn-default signup-before" style="display: none;">Signup and book this Event!</button>
+                    <button type="submit" class="btn btn-default signup-before" style="display: none;">Login and book this Event!</button>
                 </div>
                 <div class="col-lg-6 event-cart" style="display: none;">
                     <h3 class="text-muted">Event Cart</h3>
@@ -390,13 +520,11 @@
         <div id="calendar"></div>
     </aside>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+   
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Events</h2>
-                    <hr class="small">
+                    <hr>  
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
@@ -482,7 +610,7 @@
                         </li>
                     </ul>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; FlyHigh.co.nz 2015</p>
+                    <p class="text-muted">Copyright &copy; BlairLines.co.nz 2015</p>
                 </div>              
             </div>
         </div>
@@ -519,7 +647,56 @@
     });
     </script>
 
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+     
 
     
-</body>
+  </body>
 </html>
