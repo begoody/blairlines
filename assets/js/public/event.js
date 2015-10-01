@@ -189,7 +189,7 @@ $(document).ready(function(){
 					$(self).html("<p>Event successfully created!</p>");
 
 					renderCalendar();
-					setTimeout(function(){ $("a[href=#services]").click(); },1500);
+					setTimeout(function(){ $("a[href=#events]").click(); },1500);
 				}
 
 			}

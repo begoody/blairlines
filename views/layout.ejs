@@ -54,7 +54,7 @@
             <li class="active"><a href="#top"><i class="fa fa-home fa-lg"></i>&nbsp;Home</a></li>
             <li><a href="#about"><i class="fa fa-book fa-lg"></i>&nbsp;About</a></li>
             <li><a href="#services"><i class="fa fa-plane fa-lg"></i>&nbsp;Services</a></li>
-            <li><a href="#portfolio"><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a></li>
+            <li><a href="#events"><i class="fa fa-calendar fa-lg"></i>&nbsp;Events</a></li>
             <li><a href="#contact"><i class="fa fa-phone-square fa-lg"></i>&nbsp;Contacts</a></li>
           </ul>
 
@@ -305,11 +305,11 @@
                     <p class="bg-warning"></p>
                     <div class="form-group">
                         <label for="inputDate">Date</label>
-                        <input type="text" class="form-control" id="inputDate" name="date" style="width: 150px;"/>
+                        <input type="text" class="form-control" id="inputDate" name="date" required="" title="Please select date" style="width: 150px;"/>
                     </div>
                     <div class="form-group">
                         <label for="inputTime">Time</label></br>
-			   <input id="durationFrom" type="text" class="time" name="timeStart"/> to <input id="durationto" type="text" class="time" name="timeEnd" />			   
+			   <input id="durationFrom" type="text" class="time" name="timeStart" required="" title="Please select start time" /> to <input id="durationto" type="text" class="time" name="timeEnd" required="" title="Please select end time" />			   
 		<script>
                 $(function() {
                     $('#durationFrom').timepicker({
@@ -334,7 +334,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputDescr">Event Description</label>
-                        <textarea class="form-control" id="inputDescr" name="description"></textarea>
+                        <textarea class="form-control" id="inputDescr" name="description" required="" title="Please write a description"></textarea>
                     </div>
                     <div class="form-group">
                         <select class="form-control" name="eventType">
@@ -449,7 +449,7 @@
 
 
  <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+    <section id="events" class="portfolio">
 <div class="col-lg-10 col-lg-offset-1 text-center">
 	<h2>Events</h2>
 	<i class="fa fa-file-text fa-1x" style="color: #7777dd; left: 10px;"> -Past or Completed</i>
