@@ -24,11 +24,9 @@ function renderCalendar(){
     var y = date.getFullYear();
     
     $.ajax({
-<<<<<<< HEAD
-    	url: "event/",
-=======
+ 
     	url: "event/calendar",
->>>>>>> ef034bbcc8760a5e229257abc760b3e6de2fa609
+
     	dataType: "JSON",
     	success: function(data){
 
