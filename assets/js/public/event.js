@@ -24,7 +24,7 @@ function renderCalendar(){
     var y = date.getFullYear();
     
     $.ajax({
-
+ 
     	url: "event/calendar",
 
     	dataType: "JSON",
