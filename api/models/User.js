@@ -22,7 +22,8 @@ module.exports = {
   	},
 
   	userType:{
-  		type: 'integer'
+  		model: 'userType'
+
   	},
 
     validationMessages: { //hand for i18n & l10n
@@ -32,7 +33,7 @@ module.exports = {
         }
     }
 
-
   }
+
 };
 

@@ -45,12 +45,11 @@ $(document).ready(function(){
 
 	});
 
-       $(".event-close").on("click",function(){
+	$(".sign-up-close").on("click",function(){
 
 		$(".sign-up").hide();
-		$(".get-started").show();		
+		$(".get-started").show();
 	});
-
 
 	$(".signup-form").submit(function(e){
 
@@ -82,9 +81,18 @@ $(document).ready(function(){
 						
 						for (e in err){
 							console.log(err);
-							
-							if(data.invalidAttributes[err][e]){
-								arrErr.push({ "input":err,"message":data.invalidAttributes[err][e].message });
+							var errorObj = data.invalidAttributes[err][e];
+							if(errorObj){
+								if(errorObj.message.indexOf("already exists")>0){  
+
+									arrErr.push({ "input":"email","message":"Already exist" });
+
+								} else { 
+
+									arrErr.push({ "input":err,"message":errorObj.message });
+
+								}
+								
 							}
 						}
 
