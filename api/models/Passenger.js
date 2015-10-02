@@ -9,15 +9,16 @@ module.exports = {
 
   attributes: {
   	name: {
-      type: 'string',
-      required: true
-    },
-    age: 'integer',
-    phone: {
-      type: 'string',
-      required: true,
-    },
-  	subscriptionType: {
+  		type: 'string',
+  		required : true
+  	},
+  	age: 'integer',
+  	phone:{
+  		type: 'string',
+  		required: true,
+  	},
+    
+  	subscriptionType:{
   		model: 'subscription'
   	},
   	events: {
@@ -28,10 +29,10 @@ module.exports = {
   		collection: 'feedback',
   		via: 'passengers'
   	},
-    user: {
-      model: 'user'
-    }
+  	user:{
+  		model: 'user'
+  	}
+
   }
-  
 };
 

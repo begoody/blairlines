@@ -6,6 +6,20 @@
  */
 
 module.exports = {
+
+	'index': function(req,res,next){
+		User.find().exec(function findEvent(err,user){ 
+			if(err){ 
+				res.json(err);
+			}
+
+			res.json(user);
+
+		});
+
+	},
+
+	/*this is for the user control*/
 	'new': function(req,res){
 		res.view();
 	},
@@ -19,6 +33,7 @@ module.exports = {
 
 			if(err){ 
 				res.json(err);
+				console.log(err);
 			}
 
 			if(user){
@@ -126,6 +141,15 @@ module.exports = {
 					});
 				}
 
+				if(user.userType=="3"){					
+					Pilot.findOne({ user: user.id }).exec(function findClub(err,club){	
+						club.user = user;
+						req.session.UserName = club.name;
+						res.json(club);
+					});
+				}
+
+
 				req.session.authenticated = true;
 				req.session.UserId = user.id;
 				req.session.UserType = user.UserType;
@@ -134,6 +158,7 @@ module.exports = {
 			
 
 		});
+			
 		} else { res.json({'error':1}); }
 	},
 	'logout': function(req,res,next){

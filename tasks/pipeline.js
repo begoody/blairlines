@@ -29,7 +29,9 @@ var jsFilesToInject = [
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
   'js/vendor/jquery-1.11.3.min.js',
-  '/js/public/CompareToDirective.js',
+  'js/build/ng-admin.min.js',
+  'js/build/admin.js',
+
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'
@@ -46,7 +48,7 @@ var jsFilesToInject = [
 // templates get spit out to the same file.  Be sure and check out `tasks/README.md`
 // for information on customizing and installing new tasks.
 var templateFilesToInject = [
-  //'templates/**/*.html'
+  'templates/**/*.html'
 ];
 
 
