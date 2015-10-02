@@ -99,6 +99,7 @@ function renderCalendar(){
 
 			    			var alreadyAppliedEvent = false;
 			    			var currentPilotEvent = false;
+			    			var currentClubEvent = false;
 
 			    			if(userObject.user.userType==1){
 
@@ -117,14 +118,23 @@ function renderCalendar(){
 			    			} else if(userObject.user.userType==2) {
 			    				
 			    				for(var i=0; i<data.pilots.length; i++){
-			    					console.log('<');
-			    					console.log(data.pilots[i].id);
-			    					console.log('>');
 
 			    					if(data.pilots[i].user == userObject.user.id){ currentPilotEvent = true; }
 			    				}
 
 			    				if(currentPilotEvent){ $(".event-cancel").show();  }
+
+			    			} else if(userObject.user.userType==3) {
+			    				
+			    				for(var i=0; i<data.clubs.length; i++){
+			    					console.log('<');
+			    					console.log(data.clubs[i].id);
+			    					console.log('>');
+
+			    					if(data.clubs[i].user == userObject.user.id){ currentClubEvent = true; }
+			    				}
+
+			    				if(currentClubEvent){ $(".event-cancel").show();  }
 
 			    			} else {
 							if(event.start > dateNow && event.end > dateNow){
