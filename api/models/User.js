@@ -22,7 +22,7 @@ module.exports = {
   	},
 
   	userType:{
-  		type: 'integer'
+  		model: 'userType'
 
   	},
 

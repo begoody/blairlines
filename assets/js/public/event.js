@@ -92,6 +92,7 @@ function renderCalendar(){
 			    			$(".event-card-date").text(date[0]);
 			    			$(".event-card-time").text(data.time);
 			    			$(".confirm-event-button").attr("data-event-id",data.id);
+			    			$(".cancel-event-applying-button").attr("data-event-id",data.id);
 
 			    			var alreadyAppliedEvent = false;
 
@@ -222,6 +223,19 @@ $(document).ready(function(){
 			data: {"event": eventId },
 			success: function(data){
 				$(".already-applied-event, .event-cart, .join-event-button").toggle();
+			}
+
+		});
+	});
+
+	$(".cancel-event-applying-button").on("click",function(){
+		var eventId = $(this).attr("data-event-id");
+		var passengerId = userObject.id;
+		$.ajax({
+			url: "event/"+eventId+"/passengers/remove/"+passengerId,
+			dataType: "JSON",
+			success: function(data){
+				alert('deleted');
 			}
 
 		});
