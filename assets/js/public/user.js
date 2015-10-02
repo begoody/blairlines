@@ -45,11 +45,7 @@ $(document).ready(function(){
 
 	});
 
-<<<<<<< HEAD
-       $(".signup-close").on("click",function(){
-=======
 	$(".sign-up-close").on("click",function(){
->>>>>>> 8ba63fa3ddb7a8ecc3783dbcbc33b41073ea4e2b
 
 		$(".sign-up").hide();
 		$(".get-started").show();

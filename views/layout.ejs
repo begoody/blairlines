@@ -222,16 +222,10 @@
                           <!-- <li><a href="#"><u>Read more</u></a></li> -->
                       </ul>
                       <!-- <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p> -->
-<<<<<<< HEAD
-			   <div class="signup-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
-              		  <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
-            		         </div>
-=======
 
          <div class="sign-up-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
                     <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
                          </div>
->>>>>>> 8ba63fa3ddb7a8ecc3783dbcbc33b41073ea4e2b
 
                   </div>
               </div>
@@ -352,7 +346,9 @@
       
 
             <div class="container event-block" style="width: 400px; display: none; background: white; opacity: 0.87; padding: 30px;">
-                
+              	<div class="event-form-close" style="position: absolute; z-index: 1; cursor: pointer; right: 480px; top: 0px; margin-top: 240px;">
+                    <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
+              </div>  
                     <h2 style="text-align: center;">Create new event</h2>
                 
                 <form action="/event/create" class="create-event-form">
@@ -405,12 +401,13 @@
                         </select>
                     </div>
                      <button type="submit" class="btn btn-default">Submit</button>
+		  
                 </form>
-            </div>
-
+		</div>
+	    
 
         </div>
-
+		
         </div>
 
 
@@ -537,12 +534,13 @@
                     <button type="submit" class="btn btn-default signup-before" style="display: none;">Login and book this Event!</button>
                 </div>
                 <div class="col-lg-6 event-cart" style="display: none;">
-                    <!--<h3 class="text-muted">Event Cart</h3>
+                    
+			<h3 class="text-muted">Event Cart</h3>
                     <hr>
                     <button type="submit" class="btn btn-default confirm-event-button" data-event-id="">Pay Checkout!</button>
-			-->
+			
 			<!--Insert-->
-	<!-- Payment-->
+	<!-- Payment
 	
               <div class="credit-card-div" style="width: 350px; margin-top: 36px; margin-left: -22px;">
 <div class="panel panel-default" >
@@ -600,6 +598,7 @@
               <!-- CREDIT CARD DIV END -->
        
     <!-- Payment END -->
+-->
 			<!--Insert End-->
                 </div>
                 <div class="col-lg-6 already-applied-event" style="display: none;">
@@ -609,7 +608,7 @@
                 </div>
             </div>
         </div>
-        <div id="calendar"></div>
+        <div id="calendar" style="cursor: pointer;"></div>
     </aside>
 
    

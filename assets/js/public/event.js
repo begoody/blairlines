@@ -16,101 +16,7 @@ function makeClubsList(){
 function renderCalendar(){
 	$("#calendar").html("");
 	
-<<<<<<< HEAD
-	$(".create-event").on("click",function(){
-		console.log("sdf");
-		$(this).hide();
 
-		$(".event-block").show();
-
-		makeClubsList();
-		
-	});
-
-	$(".create-event-form").submit(function(e){
-
-		console.log('foo');
-		var formData = $(this).serializeArray();
-
-		var url = $(this).attr("action");
-
-		var self = this;
-		$(self).find(".bg-warning").html("");
-		$(".form-group").removeClass("has-error");
-
-		$.ajax({
-
-			url: url,
-			method: "GET",
-			data: formData,
-			success: function(data){
-
-				if (data.error){
-					//console.error(data.invalidAttributes);
-
-					var arrErr = [];
-					
-					for(err in data.invalidAttributes){
-						
-						
-						
-						for (e in err){
-							console.log(err);
-							
-							if(data.invalidAttributes[err][e]){
-								arrErr.push({ "input":err,"message":data.invalidAttributes[err][e].message });
-							}
-						}
-
-					}
-
-					//console.log(arrErr.length);
-
-					for(error in arrErr) {
-						$(self).find("input[name="+arrErr[error].input+"]").parents(".form-group").addClass("has-error");
-						if(arrErr[error]){ $(self).find(".bg-warning").append(arrErr[error].input+": "+arrErr[error].message+"<br />"); }
-						
-					}
-
-				} else{
-					console.log(data)
-					$(self).html("<p>Event successfully created!</p>");
-				}
-
-			}
-
-		});
-
-		e.preventDefault();
-	});
-	
-	$(".event-close").on("click",function(){  
-
-		$(".event-card").hide();
-		
-
-	});
-
-	$(".join-event-button").on("click",function(){
-
-		$(".event-cart").show();
-	});
-
-	$(".confirm-event-button").on("click",function(){
-		var eventId = $(this).attr("data-event-id");  
-		$.ajax({
-			url: "event/apply",
-			dataType: "JSON",
-			data: {"event": eventId },
-			success: function(data){
-				$(".already-applied-event, .event-cart, .join-event-button").toggle();
-			}
-
-		});
-	});
-
-=======
->>>>>>> 8ba63fa3ddb7a8ecc3783dbcbc33b41073ea4e2b
 	$.getScript('js/vendor/fullcalendar.js', function() {
 
     var date = new Date();
@@ -148,7 +54,7 @@ function renderCalendar(){
     		}
     		console.log(eventArr);
 	    	 $('#calendar').fullCalendar({
-			 height: 500,
+			 height: 500,			 
 			 disableDragging: true,
 			 disableResizing: true,
 		        header: {
@@ -295,7 +201,8 @@ $(document).ready(function(){
 
 					renderCalendar();
 					
-					setTimeout(function(){ $("a[href=#events]").click(); },1500);
+					setTimeout(function(){ $("a[href=#events]").click(); $(".event-block").hide(); $(".create-event").show();},1500);
+				       
 
 				}
 
@@ -311,6 +218,14 @@ $(document).ready(function(){
 		$(".event-card").hide();
 
 	});
+
+	$(".event-form-close").on("click",function(){
+
+		$(".event-block").hide();
+		$(".create-event").show();
+
+	});
+
 
 	$(".join-event-button").on("click",function(){
 
