@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 	});
 
-       $(".event-close").on("click",function(){
+       $(".signup-close").on("click",function(){
 
 		$(".sign-up").hide();
 		$(".get-started").show();		

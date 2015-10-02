@@ -1,0 +1,35 @@
+@media (min-width: 100px) and (max-width: 1190px) {
+  #ftr-large-add { display:none!important; }
+}
+
+.add-wrapper-db {
+   color: #CBCBCB;
+  font-size: 12px;
+  line-height: 25px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #DFDFDF;
+  text-align: center;
+  
+}
+
+
+
+.add-wrapper-db .add-block {
+        padding:5px;
+}
+
+/* CREDIT CARD DIV STYLES */
+
+.credit-card-div  span {
+    padding-top:10px;
+        }
+.credit-card-div img {
+    padding-top:30px;
+}
+.credit-card-div .small-font {
+    font-size:9px;
+}
+.credit-card-div .pad-adjust {
+    padding-top:10px;
+}

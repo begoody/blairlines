@@ -86,6 +86,7 @@ $(document).ready(function(){
 	$(".event-close").on("click",function(){  
 
 		$(".event-card").hide();
+		
 
 	});
 
@@ -174,12 +175,13 @@ $(document).ready(function(){
 			    		dataType: "JSON",
 			    		success: function(data){
 			    			console.log(data);
+						var dateNow = new Date();
 			    			var date = data.date.split("T");
 			    			$(".event-card-type").text(data.eventType.title);
 			    			$(".event-card-description").text(data.description);
 			    			$(".event-card-club").text(data.clubs[0].name);
 			    			$(".event-card-date").text(date[0]);
-			    			$(".event-card-time").text(data.time);
+			    			$(".event-card-time").text(data.timeStart + " - " + data.timeEnd);
 			    			$(".confirm-event-button").attr("data-event-id",data.id);
 
 			    			var alreadyAppliedEvent = false;
@@ -190,11 +192,18 @@ $(document).ready(function(){
 			    					if(pass.id == userObject.user.PassengerId){ alreadyAppliedEvent = true; console.log(1); }
 			    				}
 
-			    				if(userObject.user.userType==1 && !alreadyAppliedEvent ){ $(".join-event-button").show(); } 
+			    				//if(userObject.user.userType==1 && !alreadyAppliedEvent ){ $(".join-event-button").show(); } 
 			    				if(alreadyAppliedEvent){ $(".already-applied-event").show(); }
+							//Validation Future events for booking
+							if(event.start > dateNow && event.end > dateNow){
+							if(userObject.user.userType==1 && !alreadyAppliedEvent){
+								$(".join-event-button").show();}
+							}
 
 			    			} else {
-			    				$(".signup-before").show();
+							if(event.start > dateNow && event.end > dateNow){
+			    				$(".signup-before").show();}
+							
 			    			}
 			    			
 			    		}

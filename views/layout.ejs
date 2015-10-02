@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/credit.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/fullcalendar.css">
@@ -184,7 +185,7 @@
                           <!-- <li><a href="#"><u>Read more</u></a></li> -->
                       </ul>
                       <!-- <p><a href="#" class="btn btn-info btn-block">Yes please, register now!</a></p> -->
-			   <div class="event-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
+			   <div class="signup-close" style="position: absolute; z-index: 1; cursor: pointer; right: 10px; top: 0px; margin-top: -10px">
               		  <span class="glyphicon glyphicon-remove-circle" style="font-size: 20px;"></span>
             		         </div>
 
@@ -482,9 +483,70 @@
                     <button type="submit" class="btn btn-default signup-before" style="display: none;">Login and book this Event!</button>
                 </div>
                 <div class="col-lg-6 event-cart" style="display: none;">
-                    <h3 class="text-muted">Event Cart</h3>
+                    <!--<h3 class="text-muted">Event Cart</h3>
                     <hr>
                     <button type="submit" class="btn btn-default confirm-event-button" data-event-id="">Pay Checkout!</button>
+			-->
+			<!--Insert-->
+	<!-- Payment-->
+	
+              <div class="credit-card-div" style="width: 350px; margin-top: 36px; margin-left: -22px;">
+<div class="panel panel-default" >
+ <div class="panel-heading">
+     
+      <div class="row ">
+              <div class="col-md-12">
+                  <input type="text" class="form-control" maxlength="25" placeholder="Enter Card Number" />
+              </div>
+          </div>
+     <div class="row ">
+              <div class="col-md-3 col-sm-3 col-xs-3">
+                  <span class="help-block text-muted small-font" > Expiry Month</span>
+                  <input type="text" class="form-control" maxlength="2" placeholder="MM" />
+              </div>
+         <div class="col-md-3 col-sm-3 col-xs-3">
+                  <span class="help-block text-muted small-font" >  Expiry Year</span>
+                  <input type="text" class="form-control" maxlength="2" placeholder="YY" />
+              </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+                  <span class="help-block text-muted small-font" >  CCV</span>
+                  <input type="text" class="form-control" maxlength="3" placeholder="CCV" />
+              </div>
+         <div class="col-md-3 col-sm-3 col-xs-3">
+				<img src="img/credit.png" class="img-rounded" />
+         </div>
+          </div>
+     <div class="row ">
+              <div class="col-md-12 pad-adjust">
+
+                  <input type="text" class="form-control" maxlength="30" placeholder="Name On The Card" />
+              </div>
+          </div>
+     <div class="row">
+<div class="col-md-12 pad-adjust">
+    <div class="checkbox">
+    <label>
+      <input type="checkbox" checked class="text-muted"> Save details for fast payments <a href="#"> learn how ?</a>
+    </label>
+  </div>
+</div>
+     </div>
+       <div class="row ">
+            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                 <input type="submit"  class="btn btn-danger" value="CANCEL" />
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                  <input type="submit"  class="btn btn-warning btn-block" value="PAY NOW" />
+              </div>
+          </div>
+     
+                   </div>
+              </div>
+              </div>
+              <!-- CREDIT CARD DIV END -->
+       
+    <!-- Payment END -->
+			<!--Insert End-->
                 </div>
                 <div class="col-lg-6 already-applied-event" style="display: none;">
                     <h3 class="text-muted">Event</h3>
