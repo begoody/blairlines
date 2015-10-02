@@ -78,7 +78,7 @@ function renderCalendar(){
     },
 			    eventClick: function(event) {
 
-			    	$(".join-event-button, .event-cart, .already-applied-event, .signup-before").hide();
+			    	$(".join-event-button, .event-cart, .already-applied-event, .signup-before, .event-cancel").hide();
 
 			    	$(".event-card").show();
 			    	$.ajax({
@@ -94,10 +94,13 @@ function renderCalendar(){
 			    			$(".event-card-date").text(date[0]);
 			    			$(".event-card-time").text(data.timeStart + " - " + data.timeEnd);
 			    			$(".confirm-event-button").attr("data-event-id",data.id);
+			    			$(".cancel-event-applying-button").attr("data-event-id",data.id);
+			    			$(".event-cancel-button").attr("data-event-id",data.id);
 
 			    			var alreadyAppliedEvent = false;
+			    			var currentPilotEvent = false;
 
-			    			if(userObject.user){
+			    			if(userObject.user.userType==1){
 
 			    				for(pass in data.passengers){
 			    					if(pass.id == userObject.user.PassengerId){ alreadyAppliedEvent = true; console.log(1); }
@@ -110,6 +113,18 @@ function renderCalendar(){
 							if(userObject.user.userType==1 && !alreadyAppliedEvent){
 								$(".join-event-button").show();}
 							}
+
+			    			} else if(userObject.user.userType==2) {
+			    				
+			    				for(var i=0; i<data.pilots.length; i++){
+			    					console.log('<');
+			    					console.log(data.pilots[i].id);
+			    					console.log('>');
+
+			    					if(data.pilots[i].user == userObject.user.id){ currentPilotEvent = true; }
+			    				}
+
+			    				if(currentPilotEvent){ $(".event-cancel").show();  }
 
 			    			} else {
 							if(event.start > dateNow && event.end > dateNow){
@@ -240,6 +255,34 @@ $(document).ready(function(){
 			data: {"event": eventId },
 			success: function(data){
 				$(".already-applied-event, .event-cart, .join-event-button").toggle();
+			}
+
+		});
+	});
+
+	$(".cancel-event-applying-button").on("click",function(){
+		var eventId = $(this).attr("data-event-id");
+		var passengerId = userObject.id;
+		$.ajax({
+			url: "event/"+eventId+"/passengers/remove/"+passengerId,
+			dataType: "JSON",
+			success: function(data){
+				alert('Your applying was sucessfully canceled!');
+				$(".event-card").hide();
+			}
+
+		});
+	});
+
+	$(".event-cancel-button").on("click",function(){
+		var eventId = $(this).attr("data-event-id");
+		$.ajax({
+			url: "event/destroy/"+eventId,
+			dataType: "JSON",
+			success: function(data){
+				alert('Your event was sucessfully canceled!');
+				$(".event-card").hide();
+				renderCalendar();
 			}
 
 		});
