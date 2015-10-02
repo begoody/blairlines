@@ -202,8 +202,8 @@ $(document).ready(function(){
 
 		e.preventDefault();
 	});
-	
-	$(".event-close").on("click",function(){  
+
+	$(".event-close").on("click",function(){
 
 		$(".event-card").hide();
 
