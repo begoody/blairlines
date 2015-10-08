@@ -194,7 +194,8 @@ html .fc,
     /* default TEXT color */
     	
     font-size: .85em;
-    cursor: default;
+    cursor: pointer;
+    
 }
 a.fc-event {
     text-decoration: none;

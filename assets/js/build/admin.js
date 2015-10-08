@@ -32,14 +32,18 @@ myApp.config(['NgAdminConfigurationProvider', function (nga) {
 
     // user  views -------------------------------------------------------
 
+    var usertype = nga.entity('usertype');
+    admin.addEntity(usertype);
     var user = nga.entity('user');
     // set the fields of the user entity list view
     user.menuView().icon('<span class="glyphicon glyphicon-user"></span>');
     user.listView().fields
     ([
         nga.field('email'),
-        nga.field('password'),
-        nga.field('userType'),
+        //nga.field('password'),
+        //nga.field('userType', 'reference').label('Types')
+	 //	.targetEntity(admin.getEntity('usertype'))
+	 //	.targetField(nga.field('title')),
         nga.field('createdAt', 'date'),
         nga.field('updatedAt', 'date')
 
@@ -47,18 +51,22 @@ myApp.config(['NgAdminConfigurationProvider', function (nga) {
 
     user.showView().fields([
         nga.field('email'),
-        nga.field('password')
+        //nga.field('password')
 
         ]);
 
     user.creationView().fields([
         nga.field('email'),
-        nga.field('password'),
-        nga.field('userType')
+        //nga.field('password'),
+        //nga.field('userType', 'reference').label('Types')
+	 //	.targetEntity(admin.getEntity('usertype'))
+	 //	.targetField(nga.field('title')),
+
         ]);
 
     user.editionView().fields(user.creationView().fields());
     admin.addEntity(user);
+    
 
 
     // add the user entity to the admin application

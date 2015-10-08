@@ -16,6 +16,7 @@ function makeClubsList(){
 function renderCalendar(){
 	$("#calendar").html("");
 	
+
 	$.getScript('js/vendor/fullcalendar.js', function() {
 
     var date = new Date();
@@ -53,7 +54,7 @@ function renderCalendar(){
     		}
     		console.log(eventArr);
 	    	 $('#calendar').fullCalendar({
-			 height: 500,
+			 height: 500,			 
 			 disableDragging: true,
 			 disableResizing: true,
 		        header: {
@@ -65,16 +66,34 @@ function renderCalendar(){
 		        events: eventArr,
 			   
     // EventColor
-   eventAfterRender: function (event, element, view) {
-        var NewDate = new Date();
-        if (event.start < NewDate && event.end > NewDate) {            
-            element.css('background-color', '#77dd77');//Present or In progress #77DD77
-        } else if (event.start < NewDate && event.end < NewDate) {
-            element.css('background-color', '#7777dd');//Past or Completed #AEC6CF  #dd7777  #7777dd
-        } else if (event.start > NewDate && event.end > NewDate) {
-            element.css('background-color', '#dd77dd');//Future or not Started #FFB347
-        }
-    },
+eventAfterRender: function (event, element, view) 
+{
+	
+				var NewDate = new Date();
+				if(event.start < NewDate && event.end > NewDate) {            
+					element.css('background-color', '#77dd77');//Present or In progress 
+					$.ajax({
+								url: "event/update/"+event.id+"?status=In progress",
+								dataType: "JSON",
+								success: function(data){}								
+								});
+				}else if (event.start < NewDate && event.end < NewDate) {
+					element.css('background-color', '#7777dd');//Past or Completed 
+					$.ajax({
+								url: "event/update/"+event.id+"?status=Completed",
+								dataType: "JSON",
+								success: function(data){}								
+								});
+				}else if (event.start > NewDate && event.end > NewDate) {
+					element.css('background-color', '#dd77dd');//Future or not Started 
+					$.ajax({
+								url: "event/update/"+event.id+"?status=Not Started",
+								dataType: "JSON",
+								success: function(data){}								
+								});
+				}
+		
+},
 			    eventClick: function(event) {
 
 			    	$(".join-event-button, .event-cart, .already-applied-event, .signup-before, .event-cancel").hide();
@@ -85,12 +104,14 @@ function renderCalendar(){
 			    		dataType: "JSON",
 			    		success: function(data){
 			    			console.log(data);
+						var dateNow = new Date();
 			    			var date = data.date.split("T");
 			    			$(".event-card-type").text(data.eventType.title);
 			    			$(".event-card-description").text(data.description);
 			    			$(".event-card-club").text(data.clubs[0].name);
 			    			$(".event-card-date").text(date[0]);
-			    			$(".event-card-time").text(data.time);
+			    			$(".event-card-time").text(data.timeStart + " - " + data.timeEnd);
+						$(".event-card-status").text(data.status);
 			    			$(".confirm-event-button").attr("data-event-id",data.id);
 			    			$(".cancel-event-applying-button").attr("data-event-id",data.id);
 			    			$(".event-cancel-button").attr("data-event-id",data.id);
@@ -105,8 +126,13 @@ function renderCalendar(){
 			    					if(pass.id == userObject.user.PassengerId){ alreadyAppliedEvent = true; console.log(1); }
 			    				}
 
-			    				if(userObject.user.userType==1 && !alreadyAppliedEvent ){ $(".join-event-button").show(); } 
+			    				//if(userObject.user.userType==1 && !alreadyAppliedEvent ){ $(".join-event-button").show(); } 
 			    				if(alreadyAppliedEvent){ $(".already-applied-event").show(); }
+							//Validation Future events for booking
+							if(event.start > dateNow && event.end > dateNow){
+							if(userObject.user.userType==1 && !alreadyAppliedEvent){
+								$(".join-event-button").show();}
+							}
 
 			    			} else if(userObject.user.userType==2) {
 			    				
@@ -130,7 +156,9 @@ function renderCalendar(){
 			    				if(currentClubEvent){ $(".event-cancel").show();  }
 
 			    			} else {
-			    				$(".signup-before").show();
+							if(event.start > dateNow && event.end > dateNow){
+			    				$(".signup-before").show();}
+							
 			    			}
 			    			
 			    		}
@@ -217,7 +245,8 @@ $(document).ready(function(){
 
 					renderCalendar();
 					
-					setTimeout(function(){ $("a[href=#events]").click(); },1500);
+					setTimeout(function(){ $("a[href=#events]").click(); $(".event-block").hide(); $(".create-event").show();},1500);
+				       
 
 				}
 
@@ -233,6 +262,14 @@ $(document).ready(function(){
 		$(".event-card").hide();
 
 	});
+
+	$(".event-form-close").on("click",function(){
+
+		$(".event-block").hide();
+		$(".create-event").show();
+
+	});
+
 
 	$(".join-event-button").on("click",function(){
 
