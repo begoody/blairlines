@@ -241,11 +241,18 @@ $(document).ready(function(){
 
 				} else{
 					console.log(data)
-					$(self).html("<p>Event successfully created!</p>");
+					$(self).hide();
+					$(".event-created").show();
 
 					renderCalendar();
 					
-					setTimeout(function(){ $("a[href=#events]").click(); $(".event-block").hide(); $(".create-event").show();},1500);
+					setTimeout(function(){ 
+						$("a[href=#events]").click(); 
+						$(".event-block").hide(); 
+						$(".event-created").hide();
+						$(".create-event-form").show();
+						$(".create-event").show();
+					},1500);
 				       
 
 				}
