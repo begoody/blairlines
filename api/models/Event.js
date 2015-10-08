@@ -12,7 +12,7 @@ module.exports = {
   	timeStart : 'string',
         timeEnd : 'string',
   	description: 'string',
-  	status: 'integer',
+  	status: 'string',
 
   	eventType:{
   		model: 'Eventtype'
