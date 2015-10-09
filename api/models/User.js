@@ -25,6 +25,8 @@ module.exports = {
   		model: 'userType'
 
   	},
+    
+	
 
     validationMessages: { //hand for i18n & l10n
         email: {
@@ -33,7 +35,15 @@ module.exports = {
         }
     }
 
-  }
+  },
+   beforeCreate: function(values, next){
+		var bcrypt = require('bcrypt');		
+			bcrypt.hash(values.password, 10, function(err, password) {
+        		if(err) return next(err);
+			values.password = password;
+			next();   		 	
+		});
+	}
 
 };
 
