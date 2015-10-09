@@ -1,19 +1,19 @@
 /**
- * EventtypeController
+ * UserTypeController
  *
- * @description :: Server-side logic for managing eventtypes
+ * @description :: Server-side logic for managing usertypes
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
 module.exports = {
 
 	'index': function(req,res,next){
-		EventType.find().exec(function findEvent(err,eventtype){ 
+		UserType.find().exec(function findEvent(err,usertype){ 
 			if(err){ 
 				res.json(err);
 			}
 
-			res.json(eventtype);
+			res.json(usertype);
 
 		});
 
