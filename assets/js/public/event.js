@@ -70,28 +70,42 @@ eventAfterRender: function (event, element, view)
 {
 	
 				var NewDate = new Date();
-				if(event.start < NewDate && event.end > NewDate) {            
-					element.css('background-color', '#77dd77');//Present or In progress 
-					$.ajax({
-								url: "event/update/"+event.id+"?status=In progress",
-								dataType: "JSON",
-								success: function(data){}								
-								});
-				}else if (event.start < NewDate && event.end < NewDate) {
-					element.css('background-color', '#7777dd');//Past or Completed 
-					$.ajax({
-								url: "event/update/"+event.id+"?status=Completed",
-								dataType: "JSON",
-								success: function(data){}								
-								});
-				}else if (event.start > NewDate && event.end > NewDate) {
-					element.css('background-color', '#dd77dd');//Future or not Started 
-					$.ajax({
-								url: "event/update/"+event.id+"?status=Not Started",
-								dataType: "JSON",
-								success: function(data){}								
-								});
-				}
+				$.ajax({
+					url: "event/"+event.id,
+					dataType: "JSON",
+					success: function(data){
+						console.log("+");
+						console.log(data.status);
+						console.log("+");
+						if(data.status=="Canceled"){ element.css('background-color', '#e4e4e4'); console.log('Canc'); return; }
+					
+						else {
+
+							if(event.start < NewDate && event.end > NewDate) {            
+							element.css('background-color', '#77dd77');//Present or In progress 
+							$.ajax({
+										url: "event/update/"+event.id+"?status=In progress",
+										dataType: "JSON",
+										success: function(data){}								
+										});
+							}else if (event.start < NewDate && event.end < NewDate) {
+								element.css('background-color', '#7777dd');//Past or Completed 
+								$.ajax({
+											url: "event/update/"+event.id+"?status=Completed",
+											dataType: "JSON",
+											success: function(data){}								
+											});
+							}else if (event.start > NewDate && event.end > NewDate) {
+								element.css('background-color', '#dd77dd');//Future or not Started 
+								$.ajax({
+											url: "event/update/"+event.id+"?status=Not Started",
+											dataType: "JSON",
+											success: function(data){}								
+											});
+							}
+						}
+					}
+				});
 		
 },
 			    eventClick: function(event) {
@@ -313,7 +327,7 @@ $(document).ready(function(){
 	$(".event-cancel-button").on("click",function(){
 		var eventId = $(this).attr("data-event-id");
 		$.ajax({
-			url: "event/destroy/"+eventId,
+			url: "event/update/"+eventId+"?status=Сanceled",
 			dataType: "JSON",
 			success: function(data){
 				alert('Your event was sucessfully canceled!');
