@@ -50,7 +50,7 @@ module.exports = {
 	'login': function(req,res,next){
 
 		var params = req.params.all();
-
+		
 		//console.log(params);
 		delete(params.id);
 		User.findOne({ email: params.email }).exec(function findUser(err,user){ 
@@ -60,8 +60,16 @@ module.exports = {
 			}
 
 			if(user){
-				delete(user.password);
+				var bcrypt = require('bcrypt');
+				// Load password hash from DB
+				bcrypt.compare(params.password, user.password, function(err, bcrRes) {
+		    			//return res;
+				console.log("bcrypt"+bcrRes + " "+params.password + " "+ user.password);
+				if(bcrRes){
+				console.log("bcrRes");
 
+				delete(user.password);
+				
 				if(user.userType=="1"){
 
 					Passenger.findOne({ user: user.id }).exec(function findPassenger(err,passenger){
@@ -106,10 +114,13 @@ module.exports = {
 				req.session.authenticated = true;
 				req.session.UserId = user.id;
 				req.session.UserType = user.UserType;
+			
+			}else { res.json(err); }
+});
 			} else { res.json(err); }
 
 			
-
+			
 		});
 	},
 	'checkSession': function(req,res,next){
