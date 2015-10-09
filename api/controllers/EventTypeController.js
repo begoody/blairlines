@@ -6,6 +6,18 @@
  */
 
 module.exports = {
+
+	'index': function(req,res,next){
+		EventType.find().exec(function findEvent(err,eventtype){ 
+			if(err){ 
+				res.json(err);
+			}
+
+			res.json(eventtype);
+
+		});
+
+	},
 	
 };
 

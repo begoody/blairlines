@@ -6,6 +6,18 @@
  */
 
 module.exports = {
+
+	'index': function(req,res,next){
+		UserType.find().exec(function findEvent(err,usertype){ 
+			if(err){ 
+				res.json(err);
+			}
+
+			res.json(usertype);
+
+		});
+
+	},
 	
 };
 
